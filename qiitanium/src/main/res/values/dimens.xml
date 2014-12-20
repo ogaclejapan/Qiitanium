@@ -1,0 +1,32 @@
+<resources>
+
+    <dimen name="layout_keyline_1">24dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_xxlarge">34sp</dimen>
+
+    <dimen name="text_size_loading">24sp</dimen>
+
+    <dimen name="spacing_xsmall">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+
+    <dimen name="article_author_icon_size">24dp</dimen>
+    <dimen name="article_author_icon_size_plus_padding">32dp</dimen>
+    <dimen name="article_author_icon_size_half">12dp</dimen>
+    <dimen name="article_author_icon_size_half_plus_padding">18dp</dimen>
+    <dimen name="article_item_content_height">48dp</dimen>
+    <dimen name="article_header_height">144dp</dimen>
+
+    <dimen name="tag_list_item_height">48dp</dimen>
+
+    <dimen name="drawer_menu_icon_size">56dp</dimen>
+
+    <dimen name="actionbar_elevation">4dp</dimen>
+
+</resources>

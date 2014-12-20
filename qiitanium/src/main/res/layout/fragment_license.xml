@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+        <TextView
+                android:id="@+id/fragment_license_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="@dimen/layout_keyline_1"
+                android:text="@string/pref_setting_title_oss_licenses"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:textColor="@color/text_secondary"/>
+
+    </FrameLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/fragment_license_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_large"
+                android:linksClickable="true"
+                android:autoLink="web"
+                android:textIsSelectable="true"
+                android:textAppearance="@style/TextAppearance.Caption"/>
+
+    </ScrollView>
+
+</LinearLayout>

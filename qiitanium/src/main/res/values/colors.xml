@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#59bb0c</color>
+    <color name="primary_dark">#429800</color>
+    <color name="primary_light">#76D42E</color>
+    <color name="secondary">#eef2ea</color>
+    <color name="secondary_dark">#d8e2d2</color>
+    <color name="accent">#F0AD4E</color>
+    <color name="accent_light">#8DFFC675</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="white_12">#1EFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="black_87">#FC000000</color>
+    <color name="black_54">#8D000000</color>
+    <color name="black_26">#42000000</color>
+    <color name="black_12">#1E000000</color>
+
+    <color name="overlay_70">#B3000000</color>
+    <color name="overlay_50">#80000000</color>
+    <color name="overlay_30">#4D000000</color>
+
+    <color name="material_menu_icon">@color/white</color>
+
+    <color name="text_primary">@color/black_87</color>
+    <color name="text_secondary">@color/black_54</color>
+    <color name="text_hint">@color/black_26</color>
+
+    <color name="disabled">@color/black_26</color>
+    <color name="divider">@color/black_12</color>
+    <color name="icon">@color/black_54</color>
+
+    <color name="drawer_menu_item">@color/overlay_70</color>
+    <color name="drawer_menu_item_pressed">@color/primary_light</color>
+    <color name="drawer_menu_item_selected">@color/primary</color>
+    <color name="drawer_menu_scrim">@color/overlay_30</color>
+
+</resources>

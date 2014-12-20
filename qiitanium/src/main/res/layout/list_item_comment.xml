@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ogaclejapan.qiitanium.presentation.view.CommentListItemView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_medium"
+        android:paddingStart="@dimen/layout_keyline_1"
+        android:paddingEnd="@dimen/spacing_large">
+
+    <LinearLayout
+            android:id="@+id/list_item_comment_header"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/list_item_comment_author_image"
+                android:layout_width="@dimen/article_author_icon_size"
+                android:layout_height="@dimen/article_author_icon_size"
+                android:contentDescription="@string/description_image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_account_circle_white_24dp"/>
+
+        <TextView
+                android:id="@+id/list_item_comment_timeago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Hint"/>
+
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/list_item_comment_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xsmall"
+            android:layout_below="@id/list_item_comment_header"
+            android:textAppearance="@style/TextAppearance.Caption"/>
+
+
+</com.ogaclejapan.qiitanium.presentation.view.CommentListItemView>

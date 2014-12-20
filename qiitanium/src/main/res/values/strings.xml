@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Qiitanium</string>
+    <string name="app_source_code">https://github.com/ogaclejapan/qiitanium</string>
+
+    <string name="loading">Loading…</string>
+    <string name="empty">No Data</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="close">Close</string>
+
+    <string name="description_image">Image</string>
+
+    <string name="ab_title_feed">Feed</string>
+    <string name="ab_title_tag">Tag</string>
+    <string name="ab_title_mypage">MyPage</string>
+    <string name="ab_title_settings">Settings</string>
+
+    <string name="menu_tag">Tag</string>
+    <string name="menu_comment">Comment</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_open_in_browser">Open in browser</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="pref_setting_category_about">About Qiitanium</string>
+    <string name="pref_setting_key_version">setting_pref_version</string>
+    <string name="pref_setting_key_source_code">setting_pref_source_code</string>
+    <string name="pref_setting_key_oss_licenses">setting_pref_oss_licenses</string>
+    <string name="pref_setting_title_version">Version</string>
+    <string name="pref_setting_title_source_code">Source Code</string>
+    <string name="pref_setting_title_oss_licenses">Open Source Licenses</string>
+
+</resources>

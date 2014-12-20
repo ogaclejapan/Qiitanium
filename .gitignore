@@ -1,0 +1,11 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+.DS_Store
+/build
+
+secret.*
+
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+

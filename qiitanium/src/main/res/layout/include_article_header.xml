@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.ogaclejapan.qiitanium.presentation.view.ArticleHeaderView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/article_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/article_header_height"
+        android:paddingStart="@dimen/layout_keyline_1"
+        android:paddingEnd="@dimen/spacing_large"
+        android:background="@color/secondary">
+
+    <LinearLayout
+            android:id="@+id/article_header_inner_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small"
+            android:layout_centerVertical="true">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/article_header_author_image"
+                    android:layout_width="@dimen/article_author_icon_size"
+                    android:layout_height="@dimen/article_author_icon_size"
+                    android:contentDescription="@string/description_image"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_account_circle_white_24dp"
+                    android:transitionName="author_image"/>
+
+            <TextView
+                    android:id="@+id/article_header_timeago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/article_author_icon_size"
+                    android:paddingStart="@dimen/spacing_small"
+                    android:paddingEnd="@dimen/spacing_small"
+                    android:textAppearance="@style/TextAppearance.Caption"
+                    android:transitionName="article_timeago"/>
+
+        </FrameLayout>
+
+        <TextView
+                android:id="@+id/article_header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:lineSpacingMultiplier="1.5"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:transitionName="article_title"/>
+
+    </LinearLayout>
+
+</com.ogaclejapan.qiitanium.presentation.view.ArticleHeaderView>

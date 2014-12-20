@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="gridview_columns">2</integer>
+    <integer name="progress_duration">1500</integer>
+
+    <!-- 20MB -->
+    <integer name="http_disk_cache_size">20971520</integer>
+</resources>
