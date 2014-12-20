@@ -1,7 +1,7 @@
 Qiitanium ([Play Store][google_play_store])
 ====
 
-![Logo Image][arg_logo]
+![Logo Image][art_logo]
 
 Qiitaniumは[プログラマのための技術情報共有サービスQiita][qiita_url]の非公式Androidアプリケーションです
 
