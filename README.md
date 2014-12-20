@@ -8,7 +8,7 @@ Qiitaniumは[プログラマのための技術情報共有サービスQiita][qii
 
 ### Roadmap to 1.0
 
-- ApiV2によるOAuthユーザ認証
+- Qiita API V2によるOAuthユーザ認証
 - ユーザ認証による機能拡充（自分の記事一覧、ストックした記事一覧、ストック機能、フォロー機能）
 - NotoFontの実験的サポート
 
@@ -41,4 +41,4 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [google_play_store]: https://play.google.com/store/apps/details?id=com.ogaclejapan.qiitanium
 [qiita_url]: https://qiita.com/
-[art_logo]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/logo.png
+[art_logo]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/qiitanium_logo.png
