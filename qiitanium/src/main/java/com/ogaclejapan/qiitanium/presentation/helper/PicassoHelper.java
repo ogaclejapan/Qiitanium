@@ -1,6 +1,7 @@
 package com.ogaclejapan.qiitanium.presentation.helper;
 
-import com.makeramen.RoundedTransformationBuilder;
+
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.ogaclejapan.qiitanium.Qiitanium;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;

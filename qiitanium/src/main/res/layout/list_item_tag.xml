@@ -2,9 +2,10 @@
 <com.ogaclejapan.qiitanium.presentation.view.TagListItemView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tag_list_item_height"
+        android:layout_height="@dimen/list_item_tag_height"
         android:paddingStart="@dimen/layout_keyline_1"
-        android:paddingEnd="@dimen/spacing_medium">
+        android:paddingEnd="@dimen/layout_keyline_1"
+        android:background="@drawable/white_ripple">
 
     <TextView
             android:id="@+id/list_item_tag_name"
@@ -12,6 +13,6 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.Title"/>
+            android:textAppearance="@style/TextAppearance.Tag"/>
 
 </com.ogaclejapan.qiitanium.presentation.view.TagListItemView>

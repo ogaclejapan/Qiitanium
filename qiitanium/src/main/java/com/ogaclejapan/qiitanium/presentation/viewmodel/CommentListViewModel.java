@@ -3,6 +3,7 @@ package com.ogaclejapan.qiitanium.presentation.viewmodel;
 import com.ogaclejapan.qiitanium.domain.model.Comment;
 import com.ogaclejapan.qiitanium.domain.model.Comments;
 import com.ogaclejapan.qiitanium.domain.model.Page;
+import com.ogaclejapan.qiitanium.presentation.activity.BootActivity;
 import com.ogaclejapan.qiitanium.util.Objects;
 import com.ogaclejapan.rx.binding.RxList;
 import com.ogaclejapan.rx.binding.RxProperty;
@@ -30,6 +31,7 @@ public class CommentListViewModel extends AppViewModel {
     private final Page mPage = Page.create();
     private final Comments mComments;
 
+    private final RxProperty<Boolean> mIsEmpty;
     private final RxProperty<Boolean> mIsLoading;
     private final RxList<CommentViewModel> mItems;
     private final CommentViewModel.Mapper mItemMapper;
@@ -39,6 +41,7 @@ public class CommentListViewModel extends AppViewModel {
     protected CommentListViewModel(Comments comments) {
         mComments = comments;
         mIsLoading = RxProperty.of(false);
+        mIsEmpty = RxProperty.of(true);
         mItems = RxList.create();
         mItemMapper = new CommentViewModel.Mapper();
     }
@@ -49,6 +52,10 @@ public class CommentListViewModel extends AppViewModel {
 
     public void setArticleId(String articleId) {
         mArticleId = articleId;
+    }
+
+    public RxReadOnlyProperty<Boolean> isEmpty() {
+        return mIsEmpty;
     }
 
     public RxReadOnlyProperty<Boolean> isLoading() {
@@ -72,6 +79,7 @@ public class CommentListViewModel extends AppViewModel {
             @Override
             public void onCompleted() {
                 mIsLoading.set(false);
+                mIsEmpty.set(mItems.isEmpty());
             }
 
             @Override

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ogaclejapan.qiitanium.presentation.view.OverlayArticleMenuView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/overlay_article"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <RelativeLayout
+            android:id="@+id/overlay_article_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/overlay_70"
+            android:visibility="invisible"
+            android:clickable="true"
+            >
+
+        <ImageButton
+                android:id="@+id/overlay_article_menu_logged_in_home_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/description_image"
+                android:src="@drawable/ic_person_outline_white_24dp"
+                android:scaleType="center"
+                android:background="@drawable/grey_menu_large_ripple"
+                />
+
+        <TextView
+                android:id="@+id/overlay_article_menu_logged_in_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_below="@id/overlay_article_menu_logged_in_home_btn"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_size_medium"
+                android:textColor="@color/white_70"
+                android:text="@string/label_guest"
+                android:singleLine="true"
+                tools:text="@string/e_g_author_name"
+                />
+
+        <com.ogaclejapan.arclayout.ArcLayout
+                android:id="@+id/overlay_article_menu_actions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                app:arc_origin="right|bottom"
+                app:arc_radius="@dimen/article_menu_arc_layout_radius"
+                app:arc_axisRadius="@dimen/article_menu_arc_axis_radius"
+                app:arc_reverseAngle="true"
+                >
+
+            <ImageButton
+                    android:id="@+id/overlay_article_menu_stock_btn"
+                    android:layout_width="@dimen/article_menu_action_button_size"
+                    android:layout_height="@dimen/article_menu_action_button_size"
+                    android:contentDescription="@string/description_image"
+                    android:src="@drawable/ic_folder_open_white_24dp"
+                    android:background="@drawable/light_blue_oval_ripple"
+                    />
+
+            <ImageButton
+                    android:id="@+id/overlay_article_menu_share_btn"
+                    android:layout_width="@dimen/article_menu_action_button_size"
+                    android:layout_height="@dimen/article_menu_action_button_size"
+                    android:contentDescription="@string/description_image"
+                    android:src="@drawable/ic_share_white_24dp"
+                    android:background="@drawable/light_green_oval_ripple"
+                    />
+
+            <ImageButton
+                    android:id="@+id/overlay_article_menu_open_browser_btn"
+                    android:layout_width="@dimen/article_menu_action_button_size"
+                    android:layout_height="@dimen/article_menu_action_button_size"
+                    android:contentDescription="@string/description_image"
+                    android:src="@drawable/ic_open_in_new_white_24dp"
+                    android:background="@drawable/green_oval_ripple"
+                    />
+
+            <ImageButton
+                    android:id="@+id/overlay_article_menu_comment_btn"
+                    android:layout_width="@dimen/article_menu_action_button_size"
+                    android:layout_height="@dimen/article_menu_action_button_size"
+                    android:contentDescription="@string/description_image"
+                    android:src="@drawable/ic_comment_white_24dp"
+                    android:background="@drawable/teal_oval_ripple"
+                    />
+
+        </com.ogaclejapan.arclayout.ArcLayout>
+
+    </RelativeLayout>
+
+    <ImageButton
+            android:id="@+id/overlay_article_menu_toggle_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/description_image"
+            android:src="@drawable/accent_toggle_ripple"
+            android:background="@color/transparent"
+            />
+
+</com.ogaclejapan.qiitanium.presentation.view.OverlayArticleMenuView>

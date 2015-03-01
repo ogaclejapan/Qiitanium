@@ -2,19 +2,24 @@
 
 <com.ogaclejapan.qiitanium.presentation.view.ArticleListItemView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/layout_keyline_1"
+        android:paddingEnd="@dimen/layout_keyline_1"
         android:paddingTop="@dimen/spacing_medium"
-        android:paddingEnd="@dimen/spacing_medium"
-        android:paddingBottom="@dimen/spacing_medium">
+        android:paddingBottom="@dimen/spacing_medium"
+        android:background="@drawable/white_ripple"
+        >
 
     <TextView
             android:id="@+id/list_item_article_timeago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.Hint"
-            android:transitionName="article_timeago"/>
+            tools:text="@string/e_g_article_timeago"
+            />
 
     <ImageView
             android:id="@+id/list_item_article_bookmark_icon"
@@ -24,15 +29,17 @@
             android:contentDescription="@string/description_image"
             android:src="@drawable/ic_bookmark_white_24dp"
             android:tint="@color/accent"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            />
 
     <RelativeLayout
             android:id="@+id/list_item_article_content"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/article_item_content_height"
+            android:layout_height="@dimen/list_item_article_content_height"
             android:layout_marginTop="@dimen/spacing_small"
             android:layout_toStartOf="@id/list_item_article_bookmark_icon"
-            android:layout_below="@id/list_item_article_timeago">
+            android:layout_below="@id/list_item_article_timeago"
+            >
 
         <TextView
                 android:id="@+id/list_item_article_title"
@@ -41,7 +48,8 @@
                 android:maxLines="2"
                 android:lineSpacingMultiplier="1.5"
                 android:textAppearance="@style/TextAppearance.Title"
-                android:transitionName="article_title"/>
+                tools:text="@string/e_g_article_title"
+                />
 
         <TextView
                 android:id="@+id/list_item_article_body"
@@ -50,67 +58,58 @@
                 android:layout_marginTop="@dimen/spacing_xsmall"
                 android:layout_below="@id/list_item_article_title"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.Caption"/>
+                android:textAppearance="@style/TextAppearance.Caption"
+                tools:text="@string/e_g_article_body"
+                />
 
     </RelativeLayout>
 
-    <LinearLayout
-            android:orientation="horizontal"
+    <RelativeLayout
+            android:id="@+id/list_item_article_author"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/list_item_article_footer_height"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_below="@id/list_item_article_content"
+            >
+
+        <ImageView
+                android:id="@+id/list_item_article_author_image"
+                android:layout_width="@dimen/thumbnail_small"
+                android:layout_height="@dimen/thumbnail_small"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/description_image"
+                android:scaleType="center"
+                android:src="@drawable/ic_person_outline_white_18dp"
+                android:background="@drawable/secondary_oval"
+                />
+
+        <TextView
+                android:id="@+id/list_item_article_author_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/list_item_article_author_image"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/list_item_article_author_chips_text_padding_left"
+                android:paddingEnd="@dimen/list_item_article_author_chips_text_padding_right"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Author"
+                tools:text="@string/e_g_author_name"
+                />
+
+    </RelativeLayout>
+
+    <TextView
+            android:id="@+id/list_item_article_tag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:baselineAligned="false"
-            android:layout_below="@id/list_item_article_content">
-
-        <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            <View
-                    android:layout_width="@dimen/article_author_icon_size"
-                    android:layout_height="@dimen/article_author_icon_size"
-                    android:layout_gravity="end"
-                    android:background="@drawable/bg_circle_secondary_color"/>
-
-            <TextView
-                    android:id="@+id/list_item_article_author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/article_author_icon_size"
-                    android:layout_marginStart="@dimen/article_author_icon_size_half"
-                    android:layout_marginEnd="@dimen/article_author_icon_size_half"
-                    android:paddingStart="@dimen/article_author_icon_size_half_plus_padding"
-                    android:gravity="center"
-                    android:textAppearance="@style/TextAppearance.Caption"
-                    android:background="@color/secondary"/>
-
-            <ImageView
-                    android:id="@+id/list_item_article_author_image"
-                    android:layout_width="@dimen/article_author_icon_size"
-                    android:layout_height="@dimen/article_author_icon_size"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_account_circle_white_24dp"
-                    android:background="@drawable/bg_circle_secondary_color"
-                    android:transitionName="author_image"/>
-
-        </FrameLayout>
-
-        <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/spacing_medium">
-
-            <TextView
-                    android:id="@+id/list_item_article_tag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.Tag"/>
-
-        </FrameLayout>
-
-    </LinearLayout>
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_toEndOf="@id/list_item_article_author"
+            android:layout_alignTop="@id/list_item_article_author"
+            android:layout_alignBottom="@id/list_item_article_author"
+            android:gravity="center_vertical|end"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Tag"
+            tools:text="@string/e_g_article_tags"
+            />
 
 </com.ogaclejapan.qiitanium.presentation.view.ArticleListItemView>

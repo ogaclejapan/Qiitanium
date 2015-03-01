@@ -43,7 +43,7 @@ public class MultiSwipeRefreshLayout extends SwipeRefreshLayout {
     }
 
     /**
-     * Set the children which can trigger a refresh by swiping down when they are visible. These
+     * Set the children which can trigger a refresh by swiping down when they are setVisible. These
      * views need to be a descendant of this view.
      */
     public void setSwipeableChildren(final int... ids) {
@@ -93,7 +93,7 @@ public class MultiSwipeRefreshLayout extends SwipeRefreshLayout {
             return ViewCompat.canScrollVertically(view, -1);
         } else {
             if (view instanceof AbsListView) {
-                // Pre-ICS we need to manually check the first visible item and the child view's top
+                // Pre-ICS we need to manually check the first setVisible item and the child view's top
                 // value
                 final AbsListView listView = (AbsListView) view;
                 return listView.getChildCount() > 0 &&

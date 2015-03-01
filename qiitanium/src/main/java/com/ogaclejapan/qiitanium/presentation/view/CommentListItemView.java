@@ -1,5 +1,6 @@
 package com.ogaclejapan.qiitanium.presentation.view;
 
+import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.ogaclejapan.qiitanium.R;
 import com.ogaclejapan.qiitanium.presentation.helper.PicassoHelper;
 import com.ogaclejapan.qiitanium.presentation.viewmodel.CommentViewModel;
@@ -34,8 +35,7 @@ public class CommentListItemView extends AppView<CommentViewModel> {
         }
 
         mPicassoHelper = PicassoHelper.create(context);
-        mRoundedTransformation = mPicassoHelper.roundedTransformation()
-                .oval(true).borderWidth(1f).borderColor(R.color.divider).build();
+        mRoundedTransformation = mPicassoHelper.roundedTransformation().oval(true).build();
 
     }
 
@@ -44,6 +44,8 @@ public class CommentListItemView extends AppView<CommentViewModel> {
         mCommentText = RxView.findById(view, R.id.list_item_comment_text);
         mAuthorThumbImage = RxView.findById(view, R.id.list_item_comment_author_image);
         mCommentedAtText = RxView.findById(view, R.id.list_item_comment_timeago);
+
+        TypefaceHelper.typeface(mCommentedAtText.get());
     }
 
     @Override
@@ -61,9 +63,9 @@ public class CommentListItemView extends AppView<CommentViewModel> {
             public void call(final ImageView imageView, final String url) {
                 mPicassoHelper
                         .load(url)
-                        .placeholder(R.drawable.ic_account_circle_white_24dp)
-                        .error(R.drawable.ic_account_circle_white_24dp)
-                        .fit()
+                        .placeholder(R.drawable.ic_person_outline_white_24dp)
+                        .error(R.drawable.ic_person_outline_white_24dp)
+                        .resizeDimen(R.dimen.thumbnail_medium, R.dimen.thumbnail_medium)
                         .transform(mRoundedTransformation)
                         .into(imageView);
             }

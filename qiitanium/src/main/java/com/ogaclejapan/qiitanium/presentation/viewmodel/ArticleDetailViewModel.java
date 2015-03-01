@@ -27,6 +27,8 @@ public class ArticleDetailViewModel extends AppViewModel {
 
     private final RxProperty<String> mAuthorThumbnailUrl = RxProperty.create();
 
+    private final RxProperty<String> mAuthorUrl = RxProperty.create();
+
     private final RxProperty<String> mCreatedAt = RxProperty.create();
 
     private final RxProperty<String> mContentHtml = RxProperty.create();
@@ -54,6 +56,10 @@ public class ArticleDetailViewModel extends AppViewModel {
 
     public RxReadOnlyProperty<String> authorThumbnailUrl() {
         return mAuthorThumbnailUrl;
+    }
+
+    public RxReadOnlyProperty<String> authorUrl() {
+        return mAuthorUrl;
     }
 
     public RxReadOnlyProperty<String> createdAt() {
@@ -87,6 +93,7 @@ public class ArticleDetailViewModel extends AppViewModel {
 
                 add(s);
 
+                mAuthorUrl.set(article.author.url());
                 mContentUrl.set(article.url());
                 mTags.addAll(Objects.map(article.tags, mTagMapper));
 

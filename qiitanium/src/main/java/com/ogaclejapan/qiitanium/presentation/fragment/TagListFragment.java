@@ -1,41 +1,36 @@
 package com.ogaclejapan.qiitanium.presentation.fragment;
 
-import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
-import com.nhaarman.listviewanimations.appearance.simple.ScaleInAnimationAdapter;
 import com.ogaclejapan.qiitanium.R;
 import com.ogaclejapan.qiitanium.presentation.activity.TagActivity;
 import com.ogaclejapan.qiitanium.presentation.adapter.TagListAdapter;
 import com.ogaclejapan.qiitanium.presentation.helper.LoadMoreHelper;
+import com.ogaclejapan.qiitanium.presentation.listener.Refreshable;
 import com.ogaclejapan.qiitanium.presentation.viewmodel.TagListViewModel;
 import com.ogaclejapan.qiitanium.presentation.viewmodel.TagViewModel;
-import com.ogaclejapan.qiitanium.presentation.widget.MultiSwipeRefreshLayout;
 import com.ogaclejapan.qiitanium.presentation.widget.TextProgressBar;
-import com.ogaclejapan.qiitanium.util.RxAppActions;
 import com.ogaclejapan.qiitanium.util.ViewUtils;
 import com.ogaclejapan.rx.binding.Rx;
 import com.ogaclejapan.rx.binding.RxActions;
 import com.ogaclejapan.rx.binding.RxView;
+import com.twotoasters.jazzylistview.JazzyListView;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ListView;
 
 import rx.Subscription;
 import rx.subscriptions.Subscriptions;
 
 public class TagListFragment extends AppFragment
-        implements SwipeRefreshLayout.OnRefreshListener, AbsListView.OnScrollListener,
-        AbsListView.OnItemClickListener {
+        implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener, Refreshable {
 
     private Rx<TextProgressBar> mProgressBar;
 
-    private Rx<MultiSwipeRefreshLayout> mSwipeLayout;
+    private JazzyListView mListView;
 
     private TagListAdapter mListAdapter;
 
@@ -58,29 +53,22 @@ public class TagListFragment extends AppFragment
         mListAdapter = TagListAdapter.create(getContext());
 
         mProgressBar = RxView.findById(view, R.id.progress);
-        mSwipeLayout = RxView.findById(view, R.id.swiperefresh);
 
-        final ListView listView = ViewUtils.findById(view, R.id.list);
-        listView.setEmptyView(ViewUtils.findById(view, R.id.empty_container));
-        listView.setOnScrollListener(this);
-        listView.setOnItemClickListener(this);
+        mListView = ViewUtils.findById(view, R.id.list);
 
-        final AnimationAdapter animAdapter = new ScaleInAnimationAdapter(mListAdapter);
-        animAdapter.setAbsListView(listView);
-        listView.setAdapter(animAdapter);
+        mLoadMoreHelper = LoadMoreHelper.with(mListView);
 
-        final MultiSwipeRefreshLayout swipeLayout = mSwipeLayout.get();
-        swipeLayout.setColorSchemeResources(R.color.accent);
-        swipeLayout.setOnRefreshListener(this);
-        swipeLayout.setSwipeableChildren(R.id.list, R.id.empty_container);
+        mListView.setAdapter(mListAdapter);
 
-        mLoadMoreHelper = LoadMoreHelper.with(listView);
+        mListView.setOnScrollListener(this);
+        mListView.setOnItemClickListener(this);
+
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onRefresh();
+        refresh();
     }
 
     @Override
@@ -88,13 +76,12 @@ public class TagListFragment extends AppFragment
         return Subscriptions.from(
                 mViewModel,
                 mListAdapter.bind(mViewModel.items()),
-                mProgressBar.bind(mViewModel.isLoading(), RxActions.setVisibility()),
-                mSwipeLayout.bind(mViewModel.isRefreshing(), RxAppActions.setRefreshing())
+                mProgressBar.bind(mViewModel.isLoading(), RxActions.setVisibility())
         );
     }
 
     @Override
-    public void onRefresh() {
+    public void refresh() {
         mViewModel.refresh();
     }
 
@@ -108,7 +95,7 @@ public class TagListFragment extends AppFragment
             final int visibleItemCount,
             final int totalItemCount) {
 
-        if (mSwipeLayout.get().isRefreshing() || ViewUtils.isVisible(mProgressBar.get())) {
+        if (ViewUtils.isVisible(mProgressBar.get())) {
             return;
         }
 
@@ -122,7 +109,7 @@ public class TagListFragment extends AppFragment
     public void onItemClick(final AdapterView<?> parent, final View view, final int position,
             final long id) {
         final TagViewModel tag = mListAdapter.getItem(position);
-        startActivity(TagActivity.intentOf(getContext(), tag.id(), tag.name().get()));
+        TagActivity.startActivity(getContext(), tag.id(), tag.name().get());
     }
 
 }

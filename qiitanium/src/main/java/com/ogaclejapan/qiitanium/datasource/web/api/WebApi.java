@@ -94,15 +94,15 @@ abstract class WebApi {
         mOkHttp.newCall(request).enqueue(callback);
     }
 
-    protected <T> T objectify(Response response, Class<T> classOfT) {
+    protected <T> T objectify(Response response, Class<T> classOfT) throws IOException {
         return objectify(response, TypeToken.get(classOfT));
     }
 
-    protected <T> T objectify(Response response, TypeToken<T> typeTokenOfT) {
+    protected <T> T objectify(Response response, TypeToken<T> typeTokenOfT) throws IOException {
         return objectify(response, typeTokenOfT.getType());
     }
 
-    protected <T> T objectify(Response response, Type typeOfT) {
+    protected <T> T objectify(Response response, Type typeOfT) throws IOException {
         return mGson.fromJson(response.body().charStream(), typeOfT);
     }
 

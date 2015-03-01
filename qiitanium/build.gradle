@@ -19,16 +19,14 @@ repositories {
 
 android {
 
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 21
-        versionCode 1
-        versionName "0.1.0"
-        renderscriptTargetApi 21
-        renderscriptSupportModeEnabled true
+        targetSdkVersion COMPILE_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
     }
 
     def secretFile = file("${rootDir}/secret.gradle")
@@ -82,24 +80,30 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.android.support:support-v13:21.0.3'
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:22.0.+'
+    compile 'com.android.support:support-v13:22.0.+'
+    compile 'com.android.support:appcompat-v7:22.0.+'
 
-    compile 'com.jakewharton.timber:timber:2.4.1'
+    compile 'com.jakewharton.timber:timber:2.7.1'
     provided 'com.squareup.dagger:dagger-compiler:1.2.2'
     compile 'com.squareup.dagger:dagger:1.2.2'
-    compile 'com.squareup.okhttp:okhttp:2.1.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
-    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.code.gson:gson:2.3.1'
 
-    compile 'io.reactivex:rxjava:1.0.3'
-    compile 'com.ogaclejapan:rxbinding:1.0'
+    compile 'io.reactivex:rxjava:1.0.8'
+    compile 'com.ogaclejapan:rxbinding:1.1.1@aar'
 
-    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
-    compile 'com.makeramen:roundedimageview:1.5.0'
-    compile 'com.balysv.materialmenu:material-menu:1.5.0'
+    compile 'com.ogaclejapan.arclayout:library:1.0.0@aar'
+    compile 'com.ogaclejapan.smarttablayout:library:1.0.0@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v13:1.0.0@aar'
+
+    compile 'com.twotoasters.jazzylistview:library:1.2.1'
+    compile 'com.sothree.slidinguppanel:library:3.0.0@aar'
+    compile 'com.norbsoft.typefacehelper:library:0.9.0@aar'
+    compile 'com.nispok:snackbar:2.10.5'
+    compile 'com.makeramen:roundedimageview:2.0.1'
     compile 'org.jsoup:jsoup:1.8.1'
 
     compile('com.crashlytics.sdk.android:crashlytics:2.2.0@aar') {

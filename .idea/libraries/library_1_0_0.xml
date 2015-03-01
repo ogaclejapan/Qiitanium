@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="library-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/qiitanium/build/intermediates/exploded-aar/com.ogaclejapan.arclayout/library/1.0.0/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/qiitanium/build/intermediates/exploded-aar/com.ogaclejapan.arclayout/library/1.0.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

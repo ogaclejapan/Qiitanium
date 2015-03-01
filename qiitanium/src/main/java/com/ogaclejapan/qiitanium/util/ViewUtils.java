@@ -1,11 +1,11 @@
 package com.ogaclejapan.qiitanium.util;
 
 import android.app.Activity;
-import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.text.Html;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -20,20 +20,37 @@ public final class ViewUtils {
         return Objects.<T>cast(view.findViewById(id));
     }
 
+    public static <T extends View> T inflate(ViewGroup root, @LayoutRes int resource) {
+        return inflate(root, resource, false);
+    }
+
+    public static <T extends View> T inflate(ViewGroup root, @LayoutRes int resource, boolean attachToRoot) {
+        return Objects.<T>cast(LayoutInflater.from(root.getContext())
+                .inflate(resource, root, attachToRoot));
+    }
+
+    public static float getCenterX(View v) {
+        return (v.getLeft() + v.getRight()) / 2f;
+    }
+
+    public static float getCenterY(View v) {
+        return (v.getTop() + v.getBottom()) / 2f;
+    }
+
     public static void setText(TextView v, int id, Object... formatArgs) {
-        v.setText(ContextUtils.getString(v.getContext(), id, formatArgs));
+        v.setText(ResUtils.getString(v.getContext(), id, formatArgs));
     }
 
     public static void setHtmlText(TextView v, int id, Object... formatArgs) {
-        v.setText(Html.fromHtml(ContextUtils.getString(v.getContext(), id, formatArgs)));
+        v.setText(Html.fromHtml(ResUtils.getString(v.getContext(), id, formatArgs)));
     }
 
     public static void setQuantityText(TextView v, int id, int quantity) {
-        v.setText(ContextUtils.getQuantityString(v.getContext(), id, quantity));
+        v.setText(ResUtils.getQuantityString(v.getContext(), id, quantity));
     }
 
     public static void setQuantityHtmlText(TextView v, int id, int quantity) {
-        v.setText(Html.fromHtml(ContextUtils.getQuantityString(v.getContext(), id, quantity)));
+        v.setText(Html.fromHtml(ResUtils.getQuantityString(v.getContext(), id, quantity)));
     }
 
     public static void setupWebView(WebView webview) {
@@ -47,15 +64,15 @@ public final class ViewUtils {
         return (v.getVisibility() == View.VISIBLE);
     }
 
-    public static void visible(View v) {
+    public static void setVisible(View v) {
         setVisibility(v, View.VISIBLE);
     }
 
-    public static void invisible(View v) {
+    public static void setInvisible(View v) {
         setVisibility(v, View.INVISIBLE);
     }
 
-    public static void gone(View v) {
+    public static void setGone(View v) {
         setVisibility(v, View.GONE);
     }
 

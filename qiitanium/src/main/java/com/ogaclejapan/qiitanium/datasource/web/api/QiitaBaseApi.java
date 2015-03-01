@@ -122,7 +122,11 @@ abstract class QiitaBaseApi extends WebApi {
             case 400:
             case 403:
             case 404:
-                return objectify(response, ErrorDto.class).error;
+                try {
+                    return objectify(response, ErrorDto.class).error;
+                } catch (IOException ioe) {
+                    Timber.e(ioe, "Failed to read response body.");
+                }
             default:
                 //Do nothing.
         }

@@ -45,7 +45,9 @@ abstract class AppView<T> extends RelativeLayout {
 
     protected abstract void onViewCreated(View view);
 
-    protected abstract Subscription onBind(T item);
+    protected Subscription onBind(T item) {
+        return Subscriptions.empty();
+    }
 
     protected void onUnbind() {
         mSubscriptions.set(Subscriptions.empty());

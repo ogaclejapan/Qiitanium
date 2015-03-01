@@ -70,7 +70,7 @@ public class Article extends EntityModel {
         }
         StringBuilder sb = new StringBuilder();
         for (Tag tag : tags) {
-            sb.append(String.format("#%s ", tag.name.get()));
+            sb.append(String.format("%s ", tag.name.get()));
         }
         return Observable.just(sb.toString());
     }

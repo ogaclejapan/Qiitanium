@@ -1,9 +1,8 @@
 package com.ogaclejapan.qiitanium.presentation.widget;
 
 import com.ogaclejapan.qiitanium.R;
-import com.ogaclejapan.qiitanium.util.ContextUtils;
+import com.ogaclejapan.qiitanium.util.ResUtils;
 import com.ogaclejapan.qiitanium.util.Objects;
-import com.ogaclejapan.qiitanium.util.ViewUtils;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -31,6 +30,8 @@ public class TextProgressBar extends ProgressBar {
 
     private static final int DEFAULT_DURATION = 1500;
 
+    private final TextProgressDrawable mTextProgressDrawable;
+
     public TextProgressBar(Context context) {
         this(context, null);
     }
@@ -48,7 +49,8 @@ public class TextProgressBar extends ProgressBar {
         TextProgressDrawable.Builder tpd = new TextProgressDrawable.Builder(context);
 
         if (isInEditMode()) {
-            setIndeterminateDrawable(tpd.build());
+            mTextProgressDrawable = tpd.build();
+            setIndeterminateDrawable(mTextProgressDrawable);
             return;
         }
 
@@ -81,8 +83,8 @@ public class TextProgressBar extends ProgressBar {
 
         }
 
-        final Drawable indeterminateDrawable = tpd.build();
-        setIndeterminateDrawable(indeterminateDrawable);
+        mTextProgressDrawable = tpd.build();
+        setIndeterminateDrawable(mTextProgressDrawable);
     }
 
     @Override
@@ -116,16 +118,15 @@ public class TextProgressBar extends ProgressBar {
 
         private final ValueAnimator mAlphaAnimator;
 
-        private final String mText;
-
         private final int mTextWidth;
 
         private final int mTextHeight;
 
+        private final String mText;
+
         private final TextPaint mTextPaint;
 
         private boolean mIsRunning;
-
 
         private TextProgressDrawable(Builder builder) {
             mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
@@ -239,7 +240,7 @@ public class TextProgressBar extends ProgressBar {
             private int mDuration = DEFAULT_DURATION;
 
             public Builder(Context context) {
-                mTextSize = ContextUtils.pxToSp(context, (int) mTextSize);
+                mTextSize = ResUtils.pxToSp(context, (int) mTextSize);
             }
 
             public Builder setText(String text) {

@@ -2,11 +2,29 @@
 
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        >
 
-    <include layout="@layout/include_swiperefresh_listview"/>
+    <com.twotoasters.jazzylistview.JazzyListView
+            android:id="@id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            app:effect="slide_in"
+            />
+
+    <com.ogaclejapan.qiitanium.presentation.widget.TextProgressBar
+            android:id="@id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:progressText="@string/loading"
+            app:progressTextSize="@dimen/text_size_loading"
+            app:progressTextColor="@color/black_26"
+            app:progressDuration="@integer/progress_duration"
+            />
 
 </FrameLayout>
 

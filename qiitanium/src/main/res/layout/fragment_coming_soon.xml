@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/white">
+<com.ogaclejapan.qiitanium.presentation.widget.ObservableScrollView
+        android:id="@+id/coming_soon_scrollview"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
 
-    <include layout="@layout/include_empty"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
-</FrameLayout>
+        <TextView
+                android:id="@+id/coming_soon_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:text="@string/coming_soon"
+                android:textSize="@dimen/text_size_title"
+                android:textColor="@color/disabled"
+                />
+
+        <ImageView
+                android:layout_width="@dimen/coming_soon_logo_size"
+                android:layout_height="@dimen/coming_soon_logo_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_disabled"
+                android:contentDescription="@string/description_image"
+                />
+
+    </LinearLayout>
+
+</com.ogaclejapan.qiitanium.presentation.widget.ObservableScrollView>

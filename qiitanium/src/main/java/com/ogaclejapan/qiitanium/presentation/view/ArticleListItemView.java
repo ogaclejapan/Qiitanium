@@ -1,6 +1,8 @@
 package com.ogaclejapan.qiitanium.presentation.view;
 
+import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.ogaclejapan.qiitanium.R;
+import com.ogaclejapan.qiitanium.presentation.activity.ArticleActivity;
 import com.ogaclejapan.qiitanium.presentation.helper.PicassoHelper;
 import com.ogaclejapan.qiitanium.presentation.viewmodel.ArticleViewModel;
 import com.ogaclejapan.rx.binding.Rx;
@@ -9,11 +11,8 @@ import com.ogaclejapan.rx.binding.RxActions;
 import com.ogaclejapan.rx.binding.RxView;
 import com.squareup.picasso.Transformation;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +20,8 @@ import android.widget.TextView;
 import rx.Subscription;
 import rx.subscriptions.Subscriptions;
 
-public class ArticleListItemView extends AppView<ArticleViewModel> {
+public class ArticleListItemView extends AppView<ArticleViewModel>
+implements View.OnClickListener {
 
     private Rx<TextView> mTitleText;
     private Rx<TextView> mBodyText;
@@ -41,17 +41,7 @@ public class ArticleListItemView extends AppView<ArticleViewModel> {
         }
 
         mPicassoHelper = PicassoHelper.create(context);
-        mRoundedTransformation = mPicassoHelper.roundedTransformation()
-                .oval(true).borderWidth(1f).borderColor(R.color.divider).build();
-    }
-
-    @SuppressWarnings("unchecked")
-    public ActivityOptions getActivityOptions(Activity activity) {
-        return ActivityOptions.makeSceneTransitionAnimation(
-                activity,
-                Pair.create((View)mTitleText.get(), "article_title"),
-                Pair.create((View)mCreatedAtText.get(), "article_timeago"),
-                Pair.create((View)mAuthorThumbnailImage.get(), "author_image"));
+        mRoundedTransformation = mPicassoHelper.roundedTransformation().oval(true).build();
     }
 
     @Override
@@ -59,10 +49,16 @@ public class ArticleListItemView extends AppView<ArticleViewModel> {
         mTitleText = RxView.findById(view, R.id.list_item_article_title);
         mBodyText = RxView.findById(view, R.id.list_item_article_body);
         mCreatedAtText = RxView.findById(view, R.id.list_item_article_timeago);
-        mAuthorNameText = RxView.findById(view, R.id.list_item_article_author);
+        mAuthorNameText = RxView.findById(view, R.id.list_item_article_author_text);
         mAuthorThumbnailImage = RxView.findById(view, R.id.list_item_article_author_image);
         mBookmarkIcon = RxView.findById(view, R.id.list_item_article_bookmark_icon);
         mTagText = RxView.findById(view, R.id.list_item_article_tag);
+
+        // Apply custom font
+        TypefaceHelper.typeface(mCreatedAtText.get());
+        TypefaceHelper.typeface(mTagText.get());
+
+        setOnClickListener(this);
     }
 
     @Override
@@ -78,20 +74,25 @@ public class ArticleListItemView extends AppView<ArticleViewModel> {
         );
     }
 
+    @Override
+    public void onClick(View v) {
+        final ArticleViewModel item = getItem();
+        ArticleActivity.startActivity(getContext(), item.id());
+    }
+
     protected RxAction<ImageView, String> loadThumbnailAction() {
         return new RxAction<ImageView, String>() {
             @Override
             public void call(final ImageView imageView, final String url) {
                 mPicassoHelper
                         .load(url)
-                        .placeholder(R.drawable.ic_account_circle_white_24dp)
-                        .error(R.drawable.ic_account_circle_white_24dp)
-                        .fit()
+                        .placeholder(R.drawable.ic_person_outline_white_18dp)
+                        .error(R.drawable.ic_person_outline_white_18dp)
+                        .resizeDimen(R.dimen.thumbnail_small, R.dimen.thumbnail_small)
                         .transform(mRoundedTransformation)
                         .into(imageView);
             }
         };
     }
-
 
 }

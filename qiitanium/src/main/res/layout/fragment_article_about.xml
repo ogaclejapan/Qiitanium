@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondary"
+        >
+
+    <LinearLayout
+            android:id="@+id/fragment_article_about_author"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/article_about_author_height"
+            android:paddingStart="@dimen/layout_keyline_1"
+            android:paddingEnd="@dimen/layout_keyline_1"
+            android:background="@drawable/white_ripple"
+            >
+
+        <ImageView
+                android:id="@+id/fragment_article_about_author_image"
+                android:layout_width="@dimen/thumbnail_medium"
+                android:layout_height="@dimen/thumbnail_medium"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/description_image"
+                android:src="@drawable/ic_person_outline_white_24dp"
+                android:scaleType="center"
+                android:background="@drawable/secondary_oval"
+                />
+
+        <TextView
+                android:id="@+id/fragment_article_about_author_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_large"
+                tools:text="@string/e_g_author_name"
+                />
+
+    </LinearLayout>
+
+    <ListView
+            android:id="@id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/fragment_article_about_author"
+            android:paddingTop="@dimen/spacing_small"
+            android:clipToPadding="false"
+            android:divider="@color/secondary"
+            android:dividerHeight="1dp"
+            android:headerDividersEnabled="true"
+            />
+
+    <com.ogaclejapan.qiitanium.presentation.widget.TextProgressBar
+            android:id="@id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            app:progressText="@string/loading"
+            app:progressTextSize="@dimen/text_size_loading"
+            app:progressTextColor="@color/black_26"
+            app:progressDuration="@integer/progress_duration"/>
+
+</RelativeLayout>

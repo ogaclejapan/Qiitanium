@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+            android:id="@id/dragview"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/header_draggable_height"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            >
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/description_image"
+                android:src="@drawable/ic_draggable_vert_grey_600_24dp"
+                />
+
+        <TextView
+                android:id="@+id/tag_top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_tags"
+                android:textAppearance="@style/TextAppearance.DragTitle"
+                />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:contentDescription="@string/description_image"
+                android:src="@drawable/ic_tag_outline_black_24dp"
+                />
+
+    </LinearLayout>
+
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+            android:id="@+id/tag_top_viewpagertab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tag_tab_height"
+            android:layout_below="@id/dragview"
+            android:background="@color/white"
+            app:stl_indicatorInFront="true"
+            app:stl_indicatorColor="@color/accent"
+            app:stl_indicatorThickness="2dp"
+            app:stl_indicatorCornerRadius="1dp"
+            app:stl_underlineColor="@color/secondary"
+            app:stl_underlineThickness="1dp"
+            app:stl_dividerColor="@color/transparent"
+            app:stl_defaultTabTextAllCaps="false"
+            app:stl_defaultTabTextColor="@color/text_secondary"
+            app:stl_defaultTabTextSize="@dimen/text_size_medium"
+            app:stl_defaultTabTextHorizontalPadding="@dimen/spacing_large"
+            />
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/tag_top_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tag_top_viewpagertab"
+            />
+
+</RelativeLayout>

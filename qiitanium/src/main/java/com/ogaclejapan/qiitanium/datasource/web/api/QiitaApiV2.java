@@ -78,7 +78,11 @@ public class QiitaApiV2 extends QiitaBaseApi {
             case 403:
             case 404:
             case 500:
-                return objectify(response, ErrorDto.class).message;
+                try {
+                    return objectify(response, ErrorDto.class).message;
+                } catch (IOException ioe) {
+                    Timber.e(ioe, "Failed to read response body.");
+                }
             default:
                 //Do nothing.
         }

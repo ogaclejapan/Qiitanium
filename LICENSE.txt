@@ -1,4 +1,4 @@
-Copyright (C) 2014 ogaclejapan.
+Copyright (C) 2014 ogaclejapan
 
 MIT License
 

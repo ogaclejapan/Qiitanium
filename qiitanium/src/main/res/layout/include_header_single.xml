@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/white"
+        >
+
+    <ImageView
+            android:id="@id/header_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/description_image"
+            android:src="@drawable/img_2"
+            android:scaleType="centerCrop"
+            />
+
+    <TextView
+            android:id="@id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:drawableStart="@drawable/ic_arrow_back_circle_white_24dp"
+            android:drawablePadding="@dimen/spacing_small"
+            android:text="@string/back_to_prev"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/white"
+            android:background="?android:attr/selectableItemBackground"
+            tools:text="@string/back_to_tags"
+            />
+
+    <TextView
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_keyline_1"
+            android:layout_above="@id/back"
+            android:textSize="@dimen/text_size_title"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:shadowColor="#888"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5"
+            tools:text="@string/label_articles"
+            />
+
+</RelativeLayout>

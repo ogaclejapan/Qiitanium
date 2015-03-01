@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <android.widget.Toolbar
-            android:id="@id/toolbar"
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@id/panel"
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            style="@style/AppToolbar"/>
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:umanoPanelHeight="@dimen/header_draggable_height"
+            app:umanoShadowHeight="1dp"
+            app:umanoDragView="@id/dragview"
+            >
 
-    <android.support.v4.widget.DrawerLayout
-            android:id="@id/drawer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <include layout="@layout/include_article_top"/>
 
-        <FrameLayout
-                android:id="@id/main_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <include layout="@layout/include_tag_top"/>
 
-            <com.ogaclejapan.qiitanium.presentation.widget.NonSwipeableViewPager
-                    android:id="@id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-        </FrameLayout>
+    <include layout="@layout/include_overlay_top"/>
 
-        <ImageView
-                android:id="@id/main_container_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/description_image"
-                android:scaleType="centerCrop"
-                android:visibility="gone"/>
-
-        <include layout="@layout/include_drawer_menu"/>
-
-    </android.support.v4.widget.DrawerLayout>
-
-</LinearLayout>
+</FrameLayout>
