@@ -1,17 +1,26 @@
-Qiitanium ([Play Store][google_play_store])
+Qiitanium
 ====
 
-![Logo Image][art_logo]
+![icon][app_icon]
 
-Qiitaniumは[プログラマのための技術情報共有サービスQiita][qiita_url]の非公式Androidアプリケーションです
+An unofficial Android application of technical information sharing service [Qiita][qiita] for programmers. (Article most of Japanese)
+
+![About Qiitanium GIF][app_gif]
+
+Try out the application on the Play Store.
+
+[![Get it on Google Play][google_play_store_badge]][google_play_store_link]
 
 
-### Roadmap to 1.0
+# Build
 
-- Qiita API V2によるOAuthユーザ認証
-- ユーザ認証による機能拡充（自分の記事一覧、ストックした記事一覧、ストック機能、フォロー機能）
-- NotoFontの実験的サポート
+```
 
+$ git clone https://github.com/ogaclejapan/Qiitanium
+$ cd Qiitanium
+$ ./gradlew installDebug
+
+```
 
 ## LICENSE
 
@@ -38,7 +47,8 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-[google_play_store]: https://play.google.com/store/apps/details?id=com.ogaclejapan.qiitanium
-[qiita_url]: https://qiita.com/
-[art_logo]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/qiitanium_logo.png
+[google_play_store_badge]: https://developer.android.com/images/brand/en_generic_rgb_wo_60.png
+[google_play_store_link]: https://play.google.com/store/apps/details?id=com.ogaclejapan.qiitanium
+[app_icon]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/icon.png
+[app_gif]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/qiitanium.gif
+[qiita]: https://qiita.com/
