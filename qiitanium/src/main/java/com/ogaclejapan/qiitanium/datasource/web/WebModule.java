@@ -23,6 +23,7 @@ import dagger.Provides;
 @Module
 public class WebModule {
 
+    @Singleton
     @Provides
     public OkHttpClient provideOkHttpClient(Application app) {
         final int size = ResUtils.getInteger(app, R.integer.http_disk_cache_size);
@@ -35,6 +36,7 @@ public class WebModule {
         return client;
     }
 
+    @Singleton
     @Provides
     public Gson provideGson() {
         return new GsonBuilder()
