@@ -24,7 +24,6 @@ import javax.inject.Singleton;
 
 import timber.log.Timber;
 
-@Singleton
 public class QiitaApiV2 extends QiitaBaseApi {
 
     private static final String PATH_BASE = "/v2";

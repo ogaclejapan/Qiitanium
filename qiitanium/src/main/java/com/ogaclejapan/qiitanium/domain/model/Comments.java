@@ -22,7 +22,9 @@ public class Comments {
     private static final WeakHashMap<String, Comment> sInstances = new WeakHashMap<>();
 
     public static Comments with(final Context context) {
-        return Qiitanium.from(context).graph().get(Comments.class);
+        final Comments instance = new Comments();
+        Qiitanium.appComponent(context).injectDomain(instance);
+        return instance;
     }
 
     public static Comment get(String id) {

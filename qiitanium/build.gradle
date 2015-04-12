@@ -1,21 +1,6 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
-
-
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
-
 
 android {
 
@@ -79,35 +64,55 @@ android {
 }
 
 dependencies {
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android support library
     compile 'com.android.support:support-v4:22.0.+'
     compile 'com.android.support:support-v13:22.0.+'
     compile 'com.android.support:appcompat-v7:22.0.+'
 
+    // DI
+    compile 'com.google.dagger:dagger:2.0'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    // Logger
     compile 'com.jakewharton.timber:timber:2.7.1'
-    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
-    compile 'com.squareup.dagger:dagger:1.2.2'
+
+    // HTTP client
     compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.3.0'
+
+    // Image downloader & transformer
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.makeramen:roundedimageview:2.0.1'
+
+    // JSON library
     compile 'com.google.code.gson:gson:2.3.1'
 
+    // Reactive library
     compile 'io.reactivex:rxjava:1.0.8'
     compile 'com.ogaclejapan:rxbinding:1.1.1@aar'
 
+    // View library
     compile 'com.ogaclejapan.arclayout:library:1.0.0@aar'
     compile 'com.ogaclejapan.smarttablayout:library:1.0.0@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v13:1.0.0@aar'
-
     compile 'com.twotoasters.jazzylistview:library:1.2.1'
     compile 'com.sothree.slidinguppanel:library:3.0.0@aar'
-    compile 'com.norbsoft.typefacehelper:library:0.9.0@aar'
     compile 'com.nispok:snackbar:2.10.5'
-    compile 'com.makeramen:roundedimageview:2.0.1'
+
+    // Custom font library
+    compile 'com.norbsoft.typefacehelper:library:0.9.0@aar'
+
+    // HTML Parser
     compile 'org.jsoup:jsoup:1.8.1'
 
+    // Crash analytics
     compile('com.crashlytics.sdk.android:crashlytics:2.2.0@aar') {
         transitive = true;
     }
+
 }
 

@@ -26,7 +26,8 @@ public class PicassoHelper {
     }
 
     public static PicassoHelper create(final Context context) {
-        return Qiitanium.from(context).graph().get(PicassoHelper.class);
+        final Picasso picasso = Qiitanium.appComponent(context).getPicasso();
+        return new PicassoHelper(picasso);
     }
 
     public RequestCreator load(final Uri uri) {

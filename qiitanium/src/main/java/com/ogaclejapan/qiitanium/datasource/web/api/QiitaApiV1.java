@@ -12,7 +12,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-@Singleton
 public class QiitaApiV1 extends QiitaBaseApi {
 
     private static final String PATH_BASE = "/v1";

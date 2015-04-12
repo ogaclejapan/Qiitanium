@@ -23,7 +23,9 @@ public class Articles {
     private static final WeakHashMap<String, Article> sInstances = new WeakHashMap<>();
 
     public static Articles with(Context context) {
-        return Qiitanium.from(context).graph().get(Articles.class);
+        Articles instance = new Articles();
+        Qiitanium.appComponent(context).injectDomain(instance);
+        return instance;
     }
 
     public static Article get(String id) {

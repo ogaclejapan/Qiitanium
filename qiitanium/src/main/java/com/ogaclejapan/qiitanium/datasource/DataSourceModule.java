@@ -21,34 +21,26 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module(
-        includes = {WebModule.class},
-        complete = false,
-        library = true
-)
+@Module
 public class DataSourceModule {
 
     @Provides
-    @Singleton
-    ArticleRepository provideArticleRepository(Application app, QiitaApiV1 api) {
+    public ArticleRepository provideArticleRepository(Application app, QiitaApiV1 api) {
         return new ArticleDataRepository(app, api);
     }
 
     @Provides
-    @Singleton
-    TagRepository provideTagRepository(Application app, QiitaApiV2 api) {
+    public TagRepository provideTagRepository(Application app, QiitaApiV2 api) {
         return new TagDataRepository(app, api);
     }
 
     @Provides
-    @Singleton
-    CommentRepository provideCommentRepository(Application app, QiitaApiV2 api) {
+    public CommentRepository provideCommentRepository(Application app, QiitaApiV2 api) {
         return new CommentDataRepository(app, api);
     }
 
     @Provides
-    @Singleton
-    Picasso providePicasso(Application app, OkHttpClient client) {
+    public Picasso providePicasso(Application app, OkHttpClient client) {
         return new Picasso.Builder(app)
                 .downloader(new OkHttpDownloader(client))
                 .build();

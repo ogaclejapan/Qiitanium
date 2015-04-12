@@ -13,7 +13,9 @@ public class Users {
     private static final WeakHashMap<String, User> sInstances = new WeakHashMap<>();
 
     public static Users with(final Context context) {
-        return Qiitanium.from(context).graph().get(Users.class);
+        final Users instance = new Users();
+        Qiitanium.appComponent(context).injectDomain(instance);
+        return instance;
     }
 
     public static User get(final String id) {

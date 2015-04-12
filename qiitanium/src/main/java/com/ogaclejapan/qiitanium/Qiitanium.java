@@ -1,82 +1,78 @@
 package com.ogaclejapan.qiitanium;
 
-import com.crashlytics.android.Crashlytics;
-import com.norbsoft.typefacehelper.TypefaceCollection;
-import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.ogaclejapan.qiitanium.util.Objects;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.Typeface;
-import android.support.annotation.StringRes;
 
 import javax.inject.Inject;
 
-import dagger.ObjectGraph;
-import io.fabric.sdk.android.Fabric;
-import timber.log.Timber;
-
 public class Qiitanium extends Application {
 
-    private ObjectGraph mObjectGraph;
+    public static interface LifecycleCallbacks {
+
+        /**
+         * Call when the {@link Qiitanium#onCreate()}.
+         */
+        void onCreate();
+
+        /**
+         * Call when the {@link Qiitanium#onTerminate()}.
+         */
+        void onTerminate();
+
+    }
+
+    @Inject
+    LifecycleCallbacks mAppLifecycleCallbacks;
 
     @Inject
     ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 
-    @Inject
-    Timber.Tree mTree;
+    private AppComponent mComponent;
 
     public static Qiitanium from(Context context) {
         return Objects.cast(context.getApplicationContext());
     }
 
+    public static AppComponent appComponent(Context context) {
+        return from(context).getComponent();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
-        initObjectGraph();
-        initLogger();
-        initTypeFace();
+        setupComponent();
+        mAppLifecycleCallbacks.onCreate();
         registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
     }
 
     @Override
     public void onTerminate() {
         unregisterActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
+        mAppLifecycleCallbacks.onTerminate();
         super.onTerminate();
     }
 
-    public <T> T inject(T instance) {
-        mObjectGraph.inject(instance);
-        return instance;
+    /**
+     * @return the {@link com.ogaclejapan.qiitanium.AppComponent}
+     */
+    public AppComponent getComponent() {
+        return mComponent;
     }
 
-    public ObjectGraph graph() {
-        return mObjectGraph;
-    }
+    /**
+     * Initialize the {@link com.ogaclejapan.qiitanium.AppComponent} of Dagger.
+     */
+    protected void setupComponent() {
+        mComponent = DaggerAppComponent.builder()
+                .appModule(Modules.appModule(this))
+                .domainModule(Modules.domainModule())
+                .dataSourceModule(Modules.dataSourceModule())
+                .webModule(Modules.webModule())
+                .build();
 
-    protected void initObjectGraph() {
-        mObjectGraph = ObjectGraph.create(Modules.list(this));
-        mObjectGraph.inject(this);
-    }
-
-    protected void initLogger() {
-        if (mTree != null) {
-            Timber.plant(mTree);
-        }
-    }
-
-    protected void initTypeFace() {
-        TypefaceHelper.init(new TypefaceCollection.Builder()
-                .set(Typeface.NORMAL, createTypefaceFromAsset(R.string.font_ubuntu_regular))
-                .set(Typeface.BOLD, createTypefaceFromAsset(R.string.font_ubuntu_bold))
-                .set(Typeface.ITALIC, createTypefaceFromAsset(R.string.font_ubuntu_regular_italic))
-                .set(Typeface.BOLD_ITALIC, createTypefaceFromAsset(R.string.font_ubuntu_bold_italic))
-                .create());
-    }
-
-    private Typeface createTypefaceFromAsset(@StringRes int resId) {
-        return Typeface.createFromAsset(getAssets(), getString(resId));
+        mComponent.inject(this);
     }
 
 }

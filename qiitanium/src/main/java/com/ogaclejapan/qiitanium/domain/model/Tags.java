@@ -21,7 +21,9 @@ public class Tags {
     private static final WeakHashMap<String, Tag> sInstances = new WeakHashMap<>();
 
     public static Tags with(final Context context) {
-        return Qiitanium.from(context).graph().get(Tags.class);
+        final Tags instance = new Tags();
+        Qiitanium.appComponent(context).injectDomain(instance);
+        return instance;
     }
 
     public static Tag get(String id) {
