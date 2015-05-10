@@ -8,6 +8,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.IntegerRes;
 
+import com.ogaclejapan.qiitanium.Qiitanium;
 import com.ogaclejapan.qiitanium.util.ResUtils;
 
 import rx.Subscription;
@@ -37,6 +38,11 @@ abstract class AppFragment extends Fragment {
   public void onDestroyView() {
     onUnbind();
     super.onDestroyView();
+  }
+
+  @Override public void onDestroy() {
+    super.onDestroy();
+    Qiitanium.from(getActivity()).getRefWatcher().watch(this);
   }
 
   protected Context getContext() {

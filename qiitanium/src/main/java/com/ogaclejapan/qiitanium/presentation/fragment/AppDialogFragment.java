@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.ogaclejapan.qiitanium.Qiitanium;
 import com.ogaclejapan.qiitanium.R;
 
 import rx.Subscription;
@@ -58,6 +59,11 @@ abstract class AppDialogFragment extends DialogFragment {
   public void onDestroyView() {
     onUnbind();
     super.onDestroyView();
+  }
+
+  @Override public void onDestroy() {
+    super.onDestroy();
+    Qiitanium.from(getActivity()).getRefWatcher().watch(this);
   }
 
   public void show(FragmentManager fm) {

@@ -2,6 +2,8 @@ package com.ogaclejapan.qiitanium;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.RefWatcher;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -32,6 +34,12 @@ public class AppModule {
   @Provides
   public Qiitanium.LifecycleCallbacks provideAppLifecycleCallbacks() {
     return new AppLifecycleCallbacks(app);
+  }
+
+  @Singleton
+  @Provides
+  public RefWatcher provideRefWatcher() {
+    return RefWatcher.DISABLED;
   }
 
 }

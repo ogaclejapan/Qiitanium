@@ -7,6 +7,7 @@ import com.crashlytics.android.Crashlytics;
 import com.norbsoft.typefacehelper.TypefaceCollection;
 import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.ogaclejapan.qiitanium.util.CrashlyticsTree;
+import com.squareup.leakcanary.LeakCanary;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
@@ -21,15 +22,19 @@ public class AppLifecycleCallbacks implements Qiitanium.LifecycleCallbacks {
 
   @Override
   public void onCreate() {
+    setupLeakCanary();
     setupFabric();
     setupLogger();
     setupTypeFace();
-
   }
 
   @Override
   public void onTerminate() {
     // Do nothing.
+  }
+
+  protected void setupLeakCanary() {
+    LeakCanary.install(app);
   }
 
   protected void setupFabric() {

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.ogaclejapan.qiitanium.util.Objects;
+import com.squareup.leakcanary.RefWatcher;
 
 import javax.inject.Inject;
 
@@ -11,6 +12,7 @@ public class Qiitanium extends Application {
 
   @Inject LifecycleCallbacks appLifecycleCallbacks;
   @Inject ActivityLifecycleCallbacks activityLifecycleCallbacks;
+  @Inject RefWatcher refWatcher;
 
   private AppComponent appComponent;
 
@@ -45,6 +47,13 @@ public class Qiitanium extends Application {
   }
 
   /**
+   * @return the {@link RefWatcher}
+   */
+  public RefWatcher getRefWatcher() {
+    return refWatcher;
+  }
+
+  /**
    * Initialize the {@link com.ogaclejapan.qiitanium.AppComponent} of Dagger.
    */
   protected void setupComponent() {
@@ -58,7 +67,7 @@ public class Qiitanium extends Application {
     appComponent.inject(this);
   }
 
-  public static interface LifecycleCallbacks {
+  public interface LifecycleCallbacks {
 
     /**
      * Call when the {@link Qiitanium#onCreate()}.
