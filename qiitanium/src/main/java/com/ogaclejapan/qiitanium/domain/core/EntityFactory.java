@@ -7,25 +7,25 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class EntityFactory<T extends Identifier, R extends Entity> {
 
-    private final Lock mLock = new ReentrantLock();
-    private final Context mContext;
+  private final Lock lock = new ReentrantLock();
+  private final Context context;
 
-    protected EntityFactory(Context context) {
-        mContext = context;
+  protected EntityFactory(Context context) {
+    this.context = context;
+  }
+
+  public R create(T idWithT) {
+    lock.lock();
+    try {
+      return newInstance(idWithT);
+    } finally {
+      lock.unlock();
     }
+  }
 
-    public R create(T idWithT) {
-        mLock.lock();
-        try {
-            return newInstance(idWithT);
-        } finally {
-            mLock.unlock();
-        }
-    }
+  protected abstract R newInstance(T idWithT);
 
-    protected abstract R newInstance(T idWithT);
-
-    protected Context getContext() {
-        return mContext;
-    }
+  protected Context getContext() {
+    return context;
+  }
 }

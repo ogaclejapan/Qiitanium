@@ -13,15 +13,14 @@ import dagger.Component;
 
 @Singleton
 @Component(
-        modules = {
-                AppModule.class,
-                DomainModule.class,
-                DataSourceModule.class,
-                WebModule.class
-        })
+    modules = {
+        AppModule.class,
+        DomainModule.class,
+        DataSourceModule.class,
+        WebModule.class
+    })
 public interface AppComponent extends DomainComponent, DataSourceComponent, WebComponent {
 
-    void inject(Qiitanium app);
-
+  void inject(Qiitanium app);
 
 }

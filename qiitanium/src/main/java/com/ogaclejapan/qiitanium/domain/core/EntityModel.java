@@ -4,15 +4,15 @@ import android.content.Context;
 
 public abstract class EntityModel extends Entity {
 
-    private final Context mContext;
+  private final Context context;
 
-    protected EntityModel(Context context, String id) {
-        super(id);
-        mContext = context;
-    }
+  protected EntityModel(Context context, String id) {
+    super(id);
+    this.context = context;
+  }
 
-    public Context getContext() {
-        return mContext;
-    }
+  public Context getContext() {
+    return context;
+  }
 
 }

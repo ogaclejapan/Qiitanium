@@ -7,15 +7,15 @@ import rx.functions.Func1;
 
 public class FindArticleById implements Func1<String, Article> {
 
-    private final ArticleRepository mRepository;
+  private final ArticleRepository repository;
 
-    public FindArticleById(ArticleRepository repository) {
-        mRepository = repository;
-    }
+  public FindArticleById(ArticleRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public Article call(final String articleId) {
-        return mRepository.findById(articleId);
-    }
+  @Override
+  public Article call(final String articleId) {
+    return repository.findById(articleId);
+  }
 
 }

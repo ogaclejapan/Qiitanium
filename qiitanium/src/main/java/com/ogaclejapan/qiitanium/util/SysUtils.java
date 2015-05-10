@@ -4,11 +4,11 @@ import android.os.Looper;
 
 public class SysUtils {
 
-    public static boolean isMainThread() {
-        return (Thread.currentThread() == Looper.getMainLooper().getThread());
-    }
+  private SysUtils() {
+    //No instances.
+  }
 
-    private SysUtils() {
-        //No instances.
-    }
+  public static boolean isMainThread() {
+    return (Thread.currentThread() == Looper.getMainLooper().getThread());
+  }
 }

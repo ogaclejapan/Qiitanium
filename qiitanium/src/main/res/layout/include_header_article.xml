@@ -1,90 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/article_header_height"
-        android:background="@color/white"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/header"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/article_header_height"
+    android:background="@color/white"
+    >
 
-    <ImageView
-            android:id="@id/header_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/description_image"
-            android:src="@drawable/img_2"
-            android:scaleType="centerCrop"
-            />
+  <ImageView
+      android:id="@id/header_image"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:contentDescription="@string/description_image"
+      android:scaleType="centerCrop"
+      android:src="@drawable/img_2"
+      />
 
-    <LinearLayout
-            android:id="@+id/header_article_subject"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_keyline_1"
-            android:layout_marginEnd="@dimen/layout_keyline_1"
-            android:layout_marginBottom="@dimen/spacing_large"
-            android:layout_alignParentBottom="true"
-            >
-
-        <TextView
-                android:id="@+id/header_article_timeago"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_medium"
-                android:textColor="@color/text_secondary_white"
-                android:shadowColor="#888"
-                android:shadowDx="1.5"
-                android:shadowDy="1.5"
-                android:shadowRadius="1.5"
-                tools:text="@string/e_g_article_timeago"
-                />
-
-        <TextView
-                android:id="@+id/header_article_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:textSize="@dimen/text_size_large"
-                android:textColor="@color/text_primary_white"
-                android:textStyle="bold"
-                android:lineSpacingMultiplier="1.3"
-                android:shadowColor="#888"
-                android:shadowDx="1.5"
-                android:shadowDy="1.5"
-                android:shadowRadius="1.5"
-                tools:text="@string/e_g_article_title"
-                />
-
-    </LinearLayout>
-
-    <ImageView
-            android:id="@id/back_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:contentDescription="@string/description_image"
-            android:paddingStart="@dimen/spacing_large"
-            android:paddingEnd="@dimen/spacing_large"
-            android:src="@drawable/ic_arrow_back_circle_white_24dp"
-            android:background="?android:attr/selectableItemBackground"
-            />
+  <LinearLayout
+      android:id="@+id/header_article_subject"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="@dimen/spacing_large"
+      android:layout_marginEnd="@dimen/layout_keyline_1"
+      android:layout_marginStart="@dimen/layout_keyline_1"
+      >
 
     <TextView
-            android:id="@id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/spacing_large"
-            android:paddingEnd="@dimen/spacing_large"
-            android:layout_alignParentBottom="true"
-            android:drawableStart="@drawable/ic_arrow_back_circle_white_24dp"
-            android:drawablePadding="@dimen/spacing_small"
-            android:text="@string/back_to_prev"
-            android:textSize="@dimen/text_size_medium"
-            android:textColor="@color/text_primary_white"
-            android:background="?android:attr/selectableItemBackground"
-            tools:text="@string/back_to_tags"
-            />
+        android:id="@+id/header_article_timeago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#888"
+        android:shadowDx="1.5"
+        android:shadowDy="1.5"
+        android:shadowRadius="1.5"
+        android:textColor="@color/text_secondary_white"
+        android:textSize="@dimen/text_size_medium"
+        tools:text="@string/e_g_article_timeago"
+        />
+
+    <TextView
+        android:id="@+id/header_article_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:lineSpacingMultiplier="1.3"
+        android:shadowColor="#888"
+        android:shadowDx="1.5"
+        android:shadowDy="1.5"
+        android:shadowRadius="1.5"
+        android:textColor="@color/text_primary_white"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        tools:text="@string/e_g_article_title"
+        />
+
+  </LinearLayout>
+
+  <ImageView
+      android:id="@id/back_icon"
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:background="?android:attr/selectableItemBackground"
+      android:contentDescription="@string/description_image"
+      android:paddingEnd="@dimen/spacing_large"
+      android:paddingStart="@dimen/spacing_large"
+      android:src="@drawable/ic_arrow_back_circle_white_24dp"
+      />
+
+  <TextView
+      android:id="@id/back"
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:layout_alignParentBottom="true"
+      android:background="?android:attr/selectableItemBackground"
+      android:drawablePadding="@dimen/spacing_small"
+      android:drawableStart="@drawable/ic_arrow_back_circle_white_24dp"
+      android:gravity="center_vertical"
+      android:paddingEnd="@dimen/spacing_large"
+      android:paddingStart="@dimen/spacing_large"
+      android:text="@string/back_to_prev"
+      android:textColor="@color/text_primary_white"
+      android:textSize="@dimen/text_size_medium"
+      tools:text="@string/back_to_prev"
+      />
 
 </RelativeLayout>

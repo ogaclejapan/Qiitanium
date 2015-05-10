@@ -4,17 +4,15 @@ import com.ogaclejapan.qiitanium.domain.exception.DataAccessException;
 
 public class WebAccessException extends DataAccessException {
 
-    private final int mStatusCode;
+  private final int statusCode;
 
-    public WebAccessException(int statusCode, String detailMessage) {
-        super(detailMessage);
-        mStatusCode = statusCode;
-    }
+  public WebAccessException(int statusCode, String detailMessage) {
+    super(detailMessage);
+    this.statusCode = statusCode;
+  }
 
-    public int getStatusCode() {
-        return mStatusCode;
-    }
-
-
+  public int getStatusCode() {
+    return statusCode;
+  }
 
 }

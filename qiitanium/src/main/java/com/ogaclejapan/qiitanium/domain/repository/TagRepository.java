@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface TagRepository {
 
-    List<Tag> findAll(Page page) throws DataAccessException;
+  List<Tag> findAll(Page page) throws DataAccessException;
 
 }

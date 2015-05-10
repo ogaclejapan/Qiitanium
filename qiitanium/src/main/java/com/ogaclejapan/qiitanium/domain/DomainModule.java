@@ -15,29 +15,24 @@ import dagger.Provides;
 @Module
 public class DomainModule {
 
-    @Provides
-    FindArticleById provideFindArticleById(ArticleRepository repository) {
-        return new FindArticleById(repository);
-    }
+  @Provides FindArticleById provideFindArticleById(ArticleRepository repository) {
+    return new FindArticleById(repository);
+  }
 
-    @Provides
-    FindArticles provideFindArticle(ArticleRepository repository) {
-        return new FindArticles(repository);
-    }
+  @Provides FindArticles provideFindArticle(ArticleRepository repository) {
+    return new FindArticles(repository);
+  }
 
-    @Provides
-    FindArticlesByTag provideFindArticlesByTag(ArticleRepository repository) {
-        return new FindArticlesByTag(repository);
-    }
+  @Provides FindArticlesByTag provideFindArticlesByTag(ArticleRepository repository) {
+    return new FindArticlesByTag(repository);
+  }
 
-    @Provides
-    FindCommentsInArticle provideFindCommentsInArticle(CommentRepository repository) {
-        return new FindCommentsInArticle(repository);
-    }
+  @Provides FindCommentsInArticle provideFindCommentsInArticle(CommentRepository repository) {
+    return new FindCommentsInArticle(repository);
+  }
 
-    @Provides
-    FindTags provideFindTags(TagRepository repository) {
-        return new FindTags(repository);
-    }
+  @Provides FindTags provideFindTags(TagRepository repository) {
+    return new FindTags(repository);
+  }
 
 }

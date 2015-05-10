@@ -4,6 +4,6 @@ import com.squareup.picasso.Picasso;
 
 public interface DataSourceComponent {
 
-    public Picasso getPicasso();
+  public Picasso getPicasso();
 
 }

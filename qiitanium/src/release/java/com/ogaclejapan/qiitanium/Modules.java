@@ -6,24 +6,22 @@ import com.ogaclejapan.qiitanium.domain.DomainModule;
 
 public final class Modules {
 
-    public static AppModule appModule(Qiitanium app) {
-        return new AppModule(app);
-    }
+  private Modules() {}
 
-    public static DomainModule domainModule() {
-        return new DomainModule();
-    }
+  public static AppModule appModule(Qiitanium app) {
+    return new AppModule(app);
+  }
 
-    public static DataSourceModule dataSourceModule() {
-        return new DataSourceModule();
-    }
+  public static DomainModule domainModule() {
+    return new DomainModule();
+  }
 
-    public static WebModule webModule() {
-        return new WebModule();
-    }
+  public static DataSourceModule dataSourceModule() {
+    return new DataSourceModule();
+  }
 
-    private Modules() {
-        // No instances.
-    }
+  public static WebModule webModule() {
+    return new WebModule();
+  }
 
 }

@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Qiitanium</string>
-    <string name="app_source_code">https://github.com/ogaclejapan/qiitanium</string>
+  <string name="app_name">Qiitanium</string>
+  <string name="app_source_code">https://github.com/ogaclejapan/qiitanium</string>
 
-    <string name="loading">Loading…</string>
-    <string name="empty">No Data</string>
-    <string name="coming_soon">Coming Soon</string>
-    <string name="not_implemented">Not Implemented :P</string>
-    <string name="close">Close</string>
+  <string name="loading">Loading…</string>
+  <string name="empty">No Data</string>
+  <string name="coming_soon">Coming Soon</string>
+  <string name="not_implemented">Not Implemented :P</string>
+  <string name="close">Close</string>
 
-    <string name="description_image">Image</string>
+  <string name="description_image">Image</string>
 
-    <string name="back_to_prev">Back to previous page</string>
+  <string name="back_to_prev">Back to previous page</string>
 
-    <string name="label_articles">Articles</string>
-    <string name="label_tags">Tags</string>
-    <string name="label_about">About</string>
-    <string name="label_comments">Comments</string>
-    <string name="label_guest">Guest</string>
-    <string name="label_refresh">Refresh</string>
-    <string name="label_settings">Settings</string>
+  <string name="label_articles">Articles</string>
+  <string name="label_tags">Tags</string>
+  <string name="label_about">About</string>
+  <string name="label_comments">Comments</string>
+  <string name="label_guest">Guest</string>
+  <string name="label_refresh">Refresh</string>
+  <string name="label_settings">Settings</string>
 
-    <string name="tab_new">New</string>
-    <string name="tab_following">Following</string>
-    <string name="tab_popular">Popular</string>
+  <string name="tab_new">New</string>
+  <string name="tab_following">Following</string>
+  <string name="tab_popular">Popular</string>
 
-    <string name="pref_setting_category_about">About</string>
-    <string name="pref_setting_key_version">setting_pref_version</string>
-    <string name="pref_setting_key_source_code">setting_pref_source_code</string>
-    <string name="pref_setting_key_oss_licenses">setting_pref_oss_licenses</string>
-    <string name="pref_setting_title_version">Version</string>
-    <string name="pref_setting_title_source_code">Source Code</string>
-    <string name="pref_setting_title_oss_licenses">Open Source Licenses</string>
+  <string name="pref_setting_category_about">About</string>
+  <string name="pref_setting_key_version">setting_pref_version</string>
+  <string name="pref_setting_key_source_code">setting_pref_source_code</string>
+  <string name="pref_setting_key_oss_licenses">setting_pref_oss_licenses</string>
+  <string name="pref_setting_title_version">Version</string>
+  <string name="pref_setting_title_source_code">Source Code</string>
+  <string name="pref_setting_title_oss_licenses">Open Source Licenses</string>
 
-    <string name="font_ubuntu_regular">fonts/ubuntu/Ubuntu-R.ttf</string>
-    <string name="font_ubuntu_bold">fonts/ubuntu/Ubuntu-B.ttf</string>
-    <string name="font_ubuntu_regular_italic">fonts/ubuntu/Ubuntu-RI.ttf</string>
-    <string name="font_ubuntu_bold_italic">fonts/ubuntu/Ubuntu-BI.ttf</string>
+  <string name="font_ubuntu_regular">fonts/ubuntu/Ubuntu-R.ttf</string>
+  <string name="font_ubuntu_bold">fonts/ubuntu/Ubuntu-B.ttf</string>
+  <string name="font_ubuntu_regular_italic">fonts/ubuntu/Ubuntu-RI.ttf</string>
+  <string name="font_ubuntu_bold_italic">fonts/ubuntu/Ubuntu-BI.ttf</string>
 
-    <string name="e_g_author_name">ogaclejapan</string>
-    <string name="e_g_article_title">Qiita非公式Androidアプリケーション「Qiitanium」をリリースしました。</string>
-    <string name="e_g_article_body">Qiita APIを利用してアプリを作ったみたので本日公開しました。</string>
-    <string name="e_g_article_timeago">4 hours ago</string>
-    <string name="e_g_article_tags">Qiita Android</string>
-    <string name="e_g_comment_text">Google samplesには色々参考になるコードサンプルがありますよー</string>
-    <string name="e_g_comment_timeago">1h</string>
+  <string name="e_g_author_name">ogaclejapan</string>
+  <string name="e_g_article_title">Qiita非公式Androidアプリケーション「Qiitanium」をリリースしました。</string>
+  <string name="e_g_article_body">Qiita APIを利用してアプリを作ったみたので本日公開しました。</string>
+  <string name="e_g_article_timeago">4 hours ago</string>
+  <string name="e_g_article_tags">Qiita Android</string>
+  <string name="e_g_comment_text">Google samplesには色々参考になるコードサンプルがありますよー</string>
+  <string name="e_g_comment_timeago">1h</string>
 
 </resources>

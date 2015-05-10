@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.ogaclejapan.qiitanium.presentation.widget.ObservableScrollView
-        android:id="@+id/coming_soon_scrollview"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coming_soon_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
 
-        <TextView
-                android:id="@+id/coming_soon_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_xlarge"
-                android:text="@string/coming_soon"
-                android:textSize="@dimen/text_size_title"
-                android:textColor="@color/disabled"
-                />
+    <TextView
+        android:id="@+id/coming_soon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:text="@string/coming_soon"
+        android:textColor="@color/disabled"
+        android:textSize="@dimen/text_size_title"
+        />
 
-        <ImageView
-                android:layout_width="@dimen/coming_soon_logo_size"
-                android:layout_height="@dimen/coming_soon_logo_size"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:scaleType="fitCenter"
-                android:src="@drawable/img_logo_disabled"
-                android:contentDescription="@string/description_image"
-                />
+    <ImageView
+        android:layout_width="@dimen/coming_soon_logo_size"
+        android:layout_height="@dimen/coming_soon_logo_size"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:contentDescription="@string/description_image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_logo_disabled"
+        />
 
-    </LinearLayout>
+  </LinearLayout>
 
 </com.ogaclejapan.qiitanium.presentation.widget.ObservableScrollView>

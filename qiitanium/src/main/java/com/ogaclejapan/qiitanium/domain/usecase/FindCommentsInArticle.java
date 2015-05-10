@@ -10,15 +10,15 @@ import rx.functions.Func2;
 
 public class FindCommentsInArticle implements Func2<String, Page, List<Comment>> {
 
-    private final CommentRepository mRepository;
+  private final CommentRepository repository;
 
-    public FindCommentsInArticle(final CommentRepository repository) {
-        mRepository = repository;
-    }
+  public FindCommentsInArticle(final CommentRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public List<Comment> call(final String articleId, final Page page) {
-        return mRepository.findAll(articleId, page);
-    }
+  @Override
+  public List<Comment> call(final String articleId, final Page page) {
+    return repository.findAll(articleId, page);
+  }
 
 }

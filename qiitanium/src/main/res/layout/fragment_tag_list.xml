@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/secondary">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary"
+    >
 
-    <com.twotoasters.jazzylistview.JazzyListView
-            android:id="@id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            app:effect="slide_in"
-            />
+  <com.twotoasters.jazzylistview.JazzyListView
+      android:id="@id/list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:divider="@null"
+      app:effect="slide_in"
+      />
 
-    <com.ogaclejapan.qiitanium.presentation.widget.TextProgressBar
-            android:id="@id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:progressText="@string/loading"
-            app:progressTextSize="@dimen/text_size_loading"
-            app:progressTextColor="@color/black_26"
-            app:progressDuration="@integer/progress_duration"/>
+  <com.ogaclejapan.qiitanium.presentation.widget.TextProgressBar
+      android:id="@id/progress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      app:progressDuration="@integer/progress_duration"
+      app:progressText="@string/loading"
+      app:progressTextColor="@color/black_26"
+      app:progressTextSize="@dimen/text_size_loading"
+      />
 
 </FrameLayout>
 

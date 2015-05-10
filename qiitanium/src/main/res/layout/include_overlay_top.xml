@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.ogaclejapan.qiitanium.presentation.view.OverlayTopMenuView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/overlay_top"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-    <RelativeLayout
-            android:id="@+id/overlay_top_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/overlay_70"
-            android:visibility="invisible"
-            android:clickable="true"
-            >
-
-        <ImageButton
-                android:id="@+id/overlay_top_menu_logged_in_home_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/description_image"
-                android:src="@drawable/ic_person_outline_white_24dp"
-                android:scaleType="center"
-                android:background="@drawable/grey_menu_large_ripple"
-                />
-
-        <ImageButton
-                android:id="@+id/overlay_top_menu_refresh_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_large"
-                android:layout_toStartOf="@id/overlay_top_menu_logged_in_home_btn"
-                android:layout_alignBottom="@id/overlay_top_menu_logged_in_home_btn"
-                android:contentDescription="@string/description_image"
-                android:src="@drawable/ic_refresh_white_24dp"
-                android:scaleType="center"
-                android:background="@drawable/grey_menu_medium_ripple"
-                />
-
-        <TextView
-                android:id="@+id/overlay_top_menu_refresh_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_below="@id/overlay_top_menu_refresh_btn"
-                android:layout_alignStart="@id/overlay_top_menu_refresh_btn"
-                android:layout_alignEnd="@id/overlay_top_menu_refresh_btn"
-                android:gravity="center_horizontal"
-                android:text="@string/label_refresh"
-                android:textAppearance="@style/TextAppearance.OverlayText"
-                />
-
-        <ImageButton
-                android:id="@+id/overlay_top_menu_settings_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_large"
-                android:layout_toEndOf="@id/overlay_top_menu_logged_in_home_btn"
-                android:layout_alignBottom="@id/overlay_top_menu_logged_in_home_btn"
-                android:contentDescription="@string/description_image"
-                android:src="@drawable/ic_more_horiz_white_24dp"
-                android:scaleType="center"
-                android:background="@drawable/grey_menu_medium_ripple"
-                />
-
-        <TextView
-                android:id="@+id/overlay_top_menu_settings_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_below="@id/overlay_top_menu_settings_btn"
-                android:layout_alignStart="@id/overlay_top_menu_settings_btn"
-                android:layout_alignEnd="@id/overlay_top_menu_settings_btn"
-                android:gravity="center_horizontal"
-                android:text="@string/label_settings"
-                android:textAppearance="@style/TextAppearance.OverlayText"
-                />
-
-
-        <TextView
-                android:id="@+id/overlay_top_menu_logged_in_name_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_below="@id/overlay_top_menu_logged_in_home_btn"
-                android:layout_toEndOf="@id/overlay_top_menu_refresh_text"
-                android:layout_toStartOf="@id/overlay_top_menu_settings_text"
-                android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:text="@string/label_guest"
-                android:textAppearance="@style/TextAppearance.OverlayText"
-                />
-
-    </RelativeLayout>
+  <RelativeLayout
+      android:id="@+id/overlay_top_menu"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/overlay_70"
+      android:clickable="true"
+      android:visibility="invisible"
+      >
 
     <ImageButton
-            android:id="@+id/overlay_top_menu_toggle_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:contentDescription="@string/description_image"
-            android:src="@drawable/primary_toggle_ripple"
-            android:background="@color/transparent"
-            />
+        android:id="@+id/overlay_top_menu_logged_in_home_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/grey_menu_large_ripple"
+        android:contentDescription="@string/description_image"
+        android:scaleType="center"
+        android:src="@drawable/ic_person_outline_white_24dp"
+        />
+
+    <ImageButton
+        android:id="@+id/overlay_top_menu_refresh_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/overlay_top_menu_logged_in_home_btn"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_toStartOf="@id/overlay_top_menu_logged_in_home_btn"
+        android:background="@drawable/grey_menu_medium_ripple"
+        android:contentDescription="@string/description_image"
+        android:scaleType="center"
+        android:src="@drawable/ic_refresh_white_24dp"
+        />
+
+    <TextView
+        android:id="@+id/overlay_top_menu_refresh_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/overlay_top_menu_refresh_btn"
+        android:layout_alignStart="@id/overlay_top_menu_refresh_btn"
+        android:layout_below="@id/overlay_top_menu_refresh_btn"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:gravity="center_horizontal"
+        android:text="@string/label_refresh"
+        android:textAppearance="@style/TextAppearance.OverlayText"
+        />
+
+    <ImageButton
+        android:id="@+id/overlay_top_menu_settings_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/overlay_top_menu_logged_in_home_btn"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_toEndOf="@id/overlay_top_menu_logged_in_home_btn"
+        android:background="@drawable/grey_menu_medium_ripple"
+        android:contentDescription="@string/description_image"
+        android:scaleType="center"
+        android:src="@drawable/ic_more_horiz_white_24dp"
+        />
+
+    <TextView
+        android:id="@+id/overlay_top_menu_settings_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/overlay_top_menu_settings_btn"
+        android:layout_alignStart="@id/overlay_top_menu_settings_btn"
+        android:layout_below="@id/overlay_top_menu_settings_btn"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:gravity="center_horizontal"
+        android:text="@string/label_settings"
+        android:textAppearance="@style/TextAppearance.OverlayText"
+        />
+
+    <TextView
+        android:id="@+id/overlay_top_menu_logged_in_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/overlay_top_menu_logged_in_home_btn"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_toEndOf="@id/overlay_top_menu_refresh_text"
+        android:layout_toStartOf="@id/overlay_top_menu_settings_text"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="@string/label_guest"
+        android:textAppearance="@style/TextAppearance.OverlayText"
+        />
+
+  </RelativeLayout>
+
+  <ImageButton
+      android:id="@+id/overlay_top_menu_toggle_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:background="@color/transparent"
+      android:contentDescription="@string/description_image"
+      android:src="@drawable/primary_toggle_ripple"
+      />
 
 </com.ogaclejapan.qiitanium.presentation.view.OverlayTopMenuView>

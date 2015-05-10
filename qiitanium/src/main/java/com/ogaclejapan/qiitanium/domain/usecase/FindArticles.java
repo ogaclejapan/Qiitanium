@@ -11,15 +11,15 @@ import rx.functions.Func1;
 
 public class FindArticles implements Func1<Page, List<Article>> {
 
-    private final ArticleRepository mRepository;
+  private final ArticleRepository repository;
 
-    public FindArticles(final ArticleRepository repository) {
-        mRepository = repository;
-    }
+  public FindArticles(final ArticleRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public List<Article> call(final Page page) throws DataAccessException {
-        return mRepository.findAll(page);
-    }
+  @Override
+  public List<Article> call(final Page page) throws DataAccessException {
+    return repository.findAll(page);
+  }
 
 }

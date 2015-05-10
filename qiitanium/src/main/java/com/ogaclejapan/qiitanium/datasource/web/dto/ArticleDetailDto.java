@@ -4,6 +4,6 @@ import java.util.List;
 
 public class ArticleDetailDto extends ArticleDto {
 
-    public List<CommentDto> comments;
+  public List<CommentDto> comments;
 
 }

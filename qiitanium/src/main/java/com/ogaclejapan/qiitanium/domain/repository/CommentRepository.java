@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface CommentRepository {
 
-    List<Comment> findAll(String articleId, Page page) throws DataAccessException;
+  List<Comment> findAll(String articleId, Page page) throws DataAccessException;
 
 }

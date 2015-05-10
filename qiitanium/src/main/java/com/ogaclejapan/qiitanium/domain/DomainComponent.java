@@ -7,12 +7,12 @@ import com.ogaclejapan.qiitanium.domain.model.Users;
 
 public interface DomainComponent {
 
-    void injectDomain(Articles instance);
+  void injectDomain(Articles instance);
 
-    void injectDomain(Comments instance);
+  void injectDomain(Comments instance);
 
-    void injectDomain(Tags instance);
+  void injectDomain(Tags instance);
 
-    void injectDomain(Users instance);
+  void injectDomain(Users instance);
 
 }

@@ -10,15 +10,15 @@ import rx.functions.Func1;
 
 public class FindTags implements Func1<Page, List<Tag>> {
 
-    private final TagRepository mRepository;
+  private final TagRepository repository;
 
-    public FindTags(TagRepository repository) {
-        mRepository = repository;
-    }
+  public FindTags(TagRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public List<Tag> call(final Page page) {
-        return mRepository.findAll(page);
-    }
+  @Override
+  public List<Tag> call(final Page page) {
+    return repository.findAll(page);
+  }
 
 }

@@ -11,46 +11,45 @@ import rx.subscriptions.Subscriptions;
 
 abstract class AppView<T> extends RelativeLayout {
 
-    private final SerialSubscription mSubscriptions = new SerialSubscription();
+  private final SerialSubscription subscription = new SerialSubscription();
+  private T item;
 
-    private T mItem;
+  protected AppView(final Context context, final AttributeSet attrs) {
+    super(context, attrs);
+  }
 
-    protected AppView(final Context context, final AttributeSet attrs) {
-        super(context, attrs);
+  public final void bindTo(T item) {
+    onUnbind();
+    this.item = item;
+    subscription.set(onBind(item));
+  }
+
+  public T getItem() {
+    return item;
+  }
+
+  @Override
+  protected void onFinishInflate() {
+    super.onFinishInflate();
+    if (!isInEditMode()) {
+      onViewCreated(this);
     }
+  }
 
-    public final void bindTo(T item) {
-        onUnbind();
-        mItem = item;
-        mSubscriptions.set(onBind(item));
-    }
+  @Override
+  protected void onDetachedFromWindow() {
+    onUnbind();
+    super.onDetachedFromWindow();
+  }
 
-    public T getItem() {
-        return mItem;
-    }
+  protected abstract void onViewCreated(View view);
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        if (!isInEditMode()) {
-            onViewCreated(this);
-        }
-    }
+  protected Subscription onBind(T item) {
+    return Subscriptions.empty();
+  }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        onUnbind();
-        super.onDetachedFromWindow();
-    }
-
-    protected abstract void onViewCreated(View view);
-
-    protected Subscription onBind(T item) {
-        return Subscriptions.empty();
-    }
-
-    protected void onUnbind() {
-        mSubscriptions.set(Subscriptions.empty());
-    }
+  protected void onUnbind() {
+    subscription.set(Subscriptions.empty());
+  }
 
 }

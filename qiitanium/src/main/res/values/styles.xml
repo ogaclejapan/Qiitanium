@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextAppearance" parent="android:TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/text_primary</item>
-    </style>
+  <style name="TextAppearance" parent="android:TextAppearance.DeviceDefault">
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textColor">@color/text_primary</item>
+  </style>
 
-    <style name="TextAppearance.Title">
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:textColor">@color/text_primary</item>
-    </style>
+  <style name="TextAppearance.Title">
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:textColor">@color/text_primary</item>
+  </style>
 
-    <style name="TextAppearance.Caption">
-        <item name="android:textSize">@dimen/text_size_small</item>
-        <item name="android:textColor">@color/text_secondary</item>
-    </style>
+  <style name="TextAppearance.Caption">
+    <item name="android:textSize">@dimen/text_size_small</item>
+    <item name="android:textColor">@color/text_secondary</item>
+  </style>
 
-    <style name="TextAppearance.Hint">
-        <item name="android:textSize">@dimen/text_size_small</item>
-        <item name="android:textColor">@color/text_hint</item>
-    </style>
+  <style name="TextAppearance.Hint">
+    <item name="android:textSize">@dimen/text_size_small</item>
+    <item name="android:textColor">@color/text_hint</item>
+  </style>
 
-    <style name="TextAppearance.DragTitle">
-        <item name="android:textSize">@dimen/text_size_large</item>
-        <item name="android:textColor">@color/text_primary</item>
-    </style>
+  <style name="TextAppearance.DragTitle">
+    <item name="android:textSize">@dimen/text_size_large</item>
+    <item name="android:textColor">@color/text_primary</item>
+  </style>
 
-    <style name="TextAppearance.OverlayText">
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:textColor">@color/white_70</item>
-    </style>
+  <style name="TextAppearance.OverlayText">
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:textColor">@color/white_70</item>
+  </style>
 
-    <style name="TextAppearance.Title.Header">
-        <item name="android:textSize">@dimen/text_size_title</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:shadowColor">@color/text_secondary</item>
-        <item name="android:shadowDx">1.5</item>
-        <item name="android:shadowDy">1.5</item>
-        <item name="android:shadowRadius">1.5</item>
-    </style>
+  <style name="TextAppearance.Title.Header">
+    <item name="android:textSize">@dimen/text_size_title</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:shadowColor">@color/text_secondary</item>
+    <item name="android:shadowDx">1.5</item>
+    <item name="android:shadowDy">1.5</item>
+    <item name="android:shadowRadius">1.5</item>
+  </style>
 
-    <style name="TextAppearance.Tab">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:shadowColor">@color/text_secondary</item>
-        <item name="android:shadowDx">1.5</item>
-        <item name="android:shadowDy">1.5</item>
-        <item name="android:shadowRadius">1.5</item>
-    </style>
+  <style name="TextAppearance.Tab">
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:shadowColor">@color/text_secondary</item>
+    <item name="android:shadowDx">1.5</item>
+    <item name="android:shadowDy">1.5</item>
+    <item name="android:shadowRadius">1.5</item>
+  </style>
 
-    <style name="TextAppearance.Tag">
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:textColor">@color/primary</item>
-    </style>
+  <style name="TextAppearance.Tag">
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:textColor">@color/primary</item>
+  </style>
 
-    <style name="TextAppearance.Author">
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:textColor">@color/text_secondary</item>
-    </style>
+  <style name="TextAppearance.Author">
+    <item name="android:textSize">@dimen/text_size_medium</item>
+    <item name="android:textColor">@color/text_secondary</item>
+  </style>
 
 </resources>

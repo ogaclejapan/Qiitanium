@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.ogaclejapan.qiitanium.presentation.view.CommentListItemView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_medium"
-        android:paddingBottom="@dimen/spacing_medium"
-        android:paddingStart="@dimen/layout_keyline_1"
-        android:paddingEnd="@dimen/layout_keyline_1"
-        android:background="@color/white"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/spacing_medium"
+    android:paddingEnd="@dimen/layout_keyline_1"
+    android:paddingStart="@dimen/layout_keyline_1"
+    android:paddingTop="@dimen/spacing_medium"
+    >
 
+  <ImageView
+      android:id="@+id/list_item_comment_author_image"
+      android:layout_width="@dimen/thumbnail_medium"
+      android:layout_height="@dimen/thumbnail_medium"
+      android:background="@drawable/secondary_oval"
+      android:contentDescription="@string/description_image"
+      android:src="@drawable/ic_person_outline_white_24dp"
+      />
 
-    <ImageView
-            android:id="@+id/list_item_comment_author_image"
-            android:layout_width="@dimen/thumbnail_medium"
-            android:layout_height="@dimen/thumbnail_medium"
-            android:contentDescription="@string/description_image"
-            android:src="@drawable/ic_person_outline_white_24dp"
-            android:background="@drawable/secondary_oval"
-            />
+  <TextView
+      android:id="@+id/list_item_comment_author_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/spacing_small"
+      android:layout_toEndOf="@id/list_item_comment_author_image"
+      android:textAppearance="@style/TextAppearance.Caption"
+      tools:text="@string/e_g_author_name"
+      />
 
+  <TextView
+      android:id="@+id/list_item_comment_timeago"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_toEndOf="@id/list_item_comment_author_text"
+      android:textAppearance="@style/TextAppearance.Hint"
+      tools:text="@string/e_g_comment_timeago"
+      />
 
-    <TextView
-            android:id="@+id/list_item_comment_author_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:layout_toEndOf="@id/list_item_comment_author_image"
-            android:textAppearance="@style/TextAppearance.Caption"
-            tools:text="@string/e_g_author_name"
-            />
-
-    <TextView
-            android:id="@+id/list_item_comment_timeago"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_medium"
-            android:layout_toEndOf="@id/list_item_comment_author_text"
-            android:textAppearance="@style/TextAppearance.Hint"
-            tools:text="@string/e_g_comment_timeago"
-            />
-
-    <TextView
-            android:id="@+id/list_item_comment_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:layout_below="@id/list_item_comment_author_text"
-            android:layout_alignStart="@id/list_item_comment_author_text"
-            android:textAppearance="@style/TextAppearance.Title"
-            tools:text="@string/e_g_comment_text"
-            />
+  <TextView
+      android:id="@+id/list_item_comment_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignStart="@id/list_item_comment_author_text"
+      android:layout_below="@id/list_item_comment_author_text"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:textAppearance="@style/TextAppearance.Title"
+      tools:text="@string/e_g_comment_text"
+      />
 
 </com.ogaclejapan.qiitanium.presentation.view.CommentListItemView>

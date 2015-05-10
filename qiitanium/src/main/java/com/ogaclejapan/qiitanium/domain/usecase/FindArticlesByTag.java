@@ -10,15 +10,15 @@ import rx.functions.Func2;
 
 public class FindArticlesByTag implements Func2<String, Page, List<Article>> {
 
-    private final ArticleRepository mRepository;
+  private final ArticleRepository repository;
 
-    public FindArticlesByTag(ArticleRepository repository) {
-        mRepository = repository;
-    }
+  public FindArticlesByTag(ArticleRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public List<Article> call(final String tagId, final Page page) {
-        return mRepository.findAllByTag(tagId, page);
-    }
+  @Override
+  public List<Article> call(final String tagId, final Page page) {
+    return repository.findAllByTag(tagId, page);
+  }
 
 }

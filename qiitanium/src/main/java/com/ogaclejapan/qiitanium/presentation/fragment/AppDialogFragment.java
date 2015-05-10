@@ -1,7 +1,5 @@
 package com.ogaclejapan.qiitanium.presentation.fragment;
 
-import com.ogaclejapan.qiitanium.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,75 +11,75 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.ogaclejapan.qiitanium.R;
+
 import rx.Subscription;
 import rx.subscriptions.SerialSubscription;
 import rx.subscriptions.Subscriptions;
 
 abstract class AppDialogFragment extends DialogFragment {
 
-    private final SerialSubscription mSubscriptions = new SerialSubscription();
-    private final String mTag;
+  private final SerialSubscription subscription = new SerialSubscription();
+  private final String tag;
+  private Context context;
 
-    private Context mContext;
+  protected AppDialogFragment(String tag) {
+    super();
+    this.tag = tag;
+  }
 
-    protected AppDialogFragment(String tag) {
-        super();
-        mTag = tag;
-    }
+  @Override
+  public void onAttach(final Activity activity) {
+    super.onAttach(activity);
+    context = activity;
+  }
 
-    @Override
-    public void onAttach(final Activity activity) {
-        super.onAttach(activity);
-        mContext = activity;
-    }
+  @Override
+  public void onCreate(final Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setStyle(DialogFragment.STYLE_NO_TITLE, R.style.AppDialog);
+  }
 
-    @Override
-    public void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.AppDialog);
-    }
+  @Override
+  public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    return new AlertDialog.Builder(getActivity(), getTheme())
+        .setPositiveButton(R.string.close, null)
+        .setView(onSetupView(LayoutInflater.from(getContext()), savedInstanceState))
+        .create();
+  }
 
-    @Override
-    public Dialog onCreateDialog(final Bundle savedInstanceState) {
-        return new AlertDialog.Builder(getActivity(), getTheme())
-                .setPositiveButton(R.string.close, null)
-                .setView(onSetupView(LayoutInflater.from(getContext()), savedInstanceState))
-                .create();
-    }
+  @Override
+  public void onActivityCreated(final Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    subscription.set(onBind());
+  }
 
-    @Override
-    public void onActivityCreated(final Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mSubscriptions.set(onBind());
-    }
+  @Override
+  public void onDestroyView() {
+    onUnbind();
+    super.onDestroyView();
+  }
 
-    @Override
-    public void onDestroyView() {
-        onUnbind();
-        super.onDestroyView();
-    }
+  public void show(FragmentManager fm) {
+    show(fm, tag);
+  }
 
-    public void show(FragmentManager fm) {
-        show(fm, mTag);
-    }
+  public void show(FragmentTransaction ft) {
+    show(ft, tag);
+  }
 
-    public void show(FragmentTransaction ft) {
-        show(ft, mTag);
-    }
+  protected Context getContext() {
+    return context;
+  }
 
-    protected Context getContext() {
-        return mContext;
-    }
+  protected abstract View onSetupView(LayoutInflater inflater, Bundle savedInstanceState);
 
-    protected abstract View onSetupView(LayoutInflater inflater, Bundle savedInstanceState);
+  protected Subscription onBind() {
+    return Subscriptions.empty();
+  }
 
-    protected Subscription onBind() {
-        return Subscriptions.empty();
-    }
-
-    protected void onUnbind() {
-        mSubscriptions.set(Subscriptions.empty());
-    }
-
+  protected void onUnbind() {
+    subscription.set(Subscriptions.empty());
+  }
 
 }

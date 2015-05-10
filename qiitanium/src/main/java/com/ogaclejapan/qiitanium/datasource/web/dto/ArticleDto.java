@@ -4,22 +4,22 @@ import java.util.List;
 
 public class ArticleDto {
 
-    public String uuid;
+  public String uuid;
 
-    public String title;
+  public String title;
 
-    public String body;
+  public String body;
 
-    public Integer commentCount;
+  public Integer commentCount;
 
-    public Integer stockCount;
+  public Integer stockCount;
 
-    public String createdAt;
+  public String createdAt;
 
-    public String updatedAt;
+  public String updatedAt;
 
-    public List<ArticleTagDto> tags;
+  public List<ArticleTagDto> tags;
 
-    public AuthorDto user;
+  public AuthorDto user;
 
 }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-    <com.sothree.slidinguppanel.SlidingUpPanelLayout
-            android:id="@id/panel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom"
-            app:umanoPanelHeight="@dimen/header_draggable_height"
-            app:umanoShadowHeight="1dp"
-            app:umanoDragView="@id/dragview"
-            >
+  <com.sothree.slidinguppanel.SlidingUpPanelLayout
+      android:id="@id/panel"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="bottom"
+      app:umanoDragView="@id/dragview"
+      app:umanoPanelHeight="@dimen/header_draggable_height"
+      app:umanoShadowHeight="1dp"
+      >
 
-        <include layout="@layout/include_article_top"/>
+    <include layout="@layout/include_article_top"/>
 
-        <include layout="@layout/include_tag_top"/>
+    <include layout="@layout/include_tag_top"/>
 
-    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+  </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-    <include layout="@layout/include_overlay_top"/>
+  <include layout="@layout/include_overlay_top"/>
 
 </FrameLayout>

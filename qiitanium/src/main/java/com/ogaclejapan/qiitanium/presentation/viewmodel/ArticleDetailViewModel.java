@@ -1,5 +1,7 @@
 package com.ogaclejapan.qiitanium.presentation.viewmodel;
 
+import android.content.Context;
+
 import com.ogaclejapan.qiitanium.domain.model.Article;
 import com.ogaclejapan.qiitanium.domain.model.Articles;
 import com.ogaclejapan.qiitanium.util.Objects;
@@ -9,96 +11,85 @@ import com.ogaclejapan.rx.binding.RxProperty;
 import com.ogaclejapan.rx.binding.RxReadOnlyList;
 import com.ogaclejapan.rx.binding.RxReadOnlyProperty;
 
-import android.content.Context;
-
 import rx.Subscription;
 import rx.functions.Action1;
 import rx.subscriptions.Subscriptions;
 
 public class ArticleDetailViewModel extends AppViewModel {
 
-    private final Articles mArticles;
+  private final Articles articles;
+  private final TagViewModel.Mapper tagMapper;
+  private final RxProperty<String> title = RxProperty.create();
+  private final RxProperty<String> authorName = RxProperty.create();
+  private final RxProperty<String> authorThumbnailUrl = RxProperty.create();
+  private final RxProperty<String> authorUrl = RxProperty.create();
+  private final RxProperty<String> createdAt = RxProperty.create();
+  private final RxProperty<String> contentHtml = RxProperty.create();
+  private final RxProperty<String> contentUrl = RxProperty.create();
+  private final RxList<TagViewModel> tags = RxList.create();
 
-    private final TagViewModel.Mapper mTagMapper;
+  protected ArticleDetailViewModel(Articles articles) {
+    this.articles = articles;
+    this.tagMapper = new TagViewModel.Mapper();
+  }
 
-    private final RxProperty<String> mTitle = RxProperty.create();
+  public static ArticleDetailViewModel create(Context context) {
+    return new ArticleDetailViewModel(Articles.with(context));
+  }
 
-    private final RxProperty<String> mAuthorName = RxProperty.create();
+  public RxReadOnlyProperty<String> title() {
+    return title;
+  }
 
-    private final RxProperty<String> mAuthorThumbnailUrl = RxProperty.create();
+  public RxReadOnlyProperty<String> authorName() {
+    return authorName;
+  }
 
-    private final RxProperty<String> mAuthorUrl = RxProperty.create();
+  public RxReadOnlyProperty<String> authorThumbnailUrl() {
+    return authorThumbnailUrl;
+  }
 
-    private final RxProperty<String> mCreatedAt = RxProperty.create();
+  public RxReadOnlyProperty<String> authorUrl() {
+    return authorUrl;
+  }
 
-    private final RxProperty<String> mContentHtml = RxProperty.create();
+  public RxReadOnlyProperty<String> createdAt() {
+    return createdAt;
+  }
 
-    private final RxProperty<String> mContentUrl = RxProperty.create();
+  public RxReadOnlyProperty<String> contentHtml() {
+    return contentHtml;
+  }
 
-    private final RxList<TagViewModel> mTags = RxList.create();
+  public RxReadOnlyList<TagViewModel> tags() {
+    return tags;
+  }
 
-    protected ArticleDetailViewModel(Articles articles) {
-        mArticles = articles;
-        mTagMapper = new TagViewModel.Mapper();
-    }
+  public RxReadOnlyProperty<String> contentUrl() {
+    return contentUrl;
+  }
 
-    public static ArticleDetailViewModel create(Context context) {
-        return new ArticleDetailViewModel(Articles.with(context));
-    }
+  public void loadArticle(String id) {
+    articles.loadById(id).subscribe(new Action1<Article>() {
+      @Override
+      public void call(final Article article) {
 
-    public RxReadOnlyProperty<String> title() {
-        return mTitle;
-    }
+        Subscription s = Subscriptions.from(
+            title.bind(article.title),
+            authorName.bind(article.author.name),
+            authorThumbnailUrl.bind(article.author.thumbnailUrl),
+            createdAt.bind(article.createdAt, TIMEAGO),
+            contentHtml.bind(article.html())
+        );
 
-    public RxReadOnlyProperty<String> authorName() {
-        return mAuthorName;
-    }
+        add(s);
 
-    public RxReadOnlyProperty<String> authorThumbnailUrl() {
-        return mAuthorThumbnailUrl;
-    }
+        authorUrl.set(article.author.url());
+        contentUrl.set(article.url());
+        tags.addAll(Objects.map(article.tags, tagMapper));
 
-    public RxReadOnlyProperty<String> authorUrl() {
-        return mAuthorUrl;
-    }
-
-    public RxReadOnlyProperty<String> createdAt() {
-        return mCreatedAt;
-    }
-
-    public RxReadOnlyProperty<String> contentHtml() {
-        return mContentHtml;
-    }
-
-    public RxReadOnlyList<TagViewModel> tags() {
-        return mTags;
-    }
-
-    public RxReadOnlyProperty<String> contentUrl() {
-        return mContentUrl;
-    }
-
-    public void loadArticle(String id) {
-        mArticles.loadById(id).subscribe(new Action1<Article>() {
-            @Override
-            public void call(final Article article) {
-
-                Subscription s = Subscriptions.from(
-                        mTitle.bind(article.title),
-                        mAuthorName.bind(article.author.name),
-                        mAuthorThumbnailUrl.bind(article.author.thumbnailUrl),
-                        mCreatedAt.bind(article.createdAt, TIMEAGO),
-                        mContentHtml.bind(article.html())
-                );
-
-                add(s);
-
-                mAuthorUrl.set(article.author.url());
-                mContentUrl.set(article.url());
-                mTags.addAll(Objects.map(article.tags, mTagMapper));
-
-            }
-        }, Rx.ERROR_ACTION_EMPTY);
-    }
+      }
+    }, Rx.ERROR_ACTION_EMPTY);
+  }
 
 }

@@ -6,19 +6,19 @@ import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState;
 
 public class SlidingUpPanelHelper {
 
-    private final SlidingUpPanelLayout mLayout;
+  private final SlidingUpPanelLayout layout;
 
-    public SlidingUpPanelHelper(SlidingUpPanelLayout layout) {
-        mLayout = layout;
-    }
+  public SlidingUpPanelHelper(SlidingUpPanelLayout layout) {
+    this.layout = layout;
+  }
 
-    public boolean isCollapsed() {
-        final PanelState state = mLayout.getPanelState();
-        return !(state == PanelState.EXPANDED || state == PanelState.ANCHORED);
-    }
+  public boolean isCollapsed() {
+    final PanelState state = layout.getPanelState();
+    return !(state == PanelState.EXPANDED || state == PanelState.ANCHORED);
+  }
 
-    public void collapse() {
-        mLayout.setPanelState(PanelState.COLLAPSED);
-    }
+  public void collapse() {
+    layout.setPanelState(PanelState.COLLAPSED);
+  }
 
 }

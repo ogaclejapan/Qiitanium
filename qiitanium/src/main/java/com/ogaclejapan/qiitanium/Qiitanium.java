@@ -1,78 +1,75 @@
 package com.ogaclejapan.qiitanium;
 
-import com.ogaclejapan.qiitanium.util.Objects;
-
 import android.app.Application;
 import android.content.Context;
+
+import com.ogaclejapan.qiitanium.util.Objects;
 
 import javax.inject.Inject;
 
 public class Qiitanium extends Application {
 
-    public static interface LifecycleCallbacks {
+  @Inject LifecycleCallbacks appLifecycleCallbacks;
+  @Inject ActivityLifecycleCallbacks activityLifecycleCallbacks;
 
-        /**
-         * Call when the {@link Qiitanium#onCreate()}.
-         */
-        void onCreate();
+  private AppComponent appComponent;
 
-        /**
-         * Call when the {@link Qiitanium#onTerminate()}.
-         */
-        void onTerminate();
+  public static Qiitanium from(Context context) {
+    return Objects.cast(context.getApplicationContext());
+  }
 
-    }
+  public static AppComponent appComponent(Context context) {
+    return from(context).getComponent();
+  }
 
-    @Inject
-    LifecycleCallbacks mAppLifecycleCallbacks;
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    setupComponent();
+    appLifecycleCallbacks.onCreate();
+    registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+  }
 
-    @Inject
-    ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
+  @Override
+  public void onTerminate() {
+    unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
+    appLifecycleCallbacks.onTerminate();
+    super.onTerminate();
+  }
 
-    private AppComponent mComponent;
+  /**
+   * @return the {@link com.ogaclejapan.qiitanium.AppComponent}
+   */
+  public AppComponent getComponent() {
+    return appComponent;
+  }
 
-    public static Qiitanium from(Context context) {
-        return Objects.cast(context.getApplicationContext());
-    }
+  /**
+   * Initialize the {@link com.ogaclejapan.qiitanium.AppComponent} of Dagger.
+   */
+  protected void setupComponent() {
+    appComponent = DaggerAppComponent.builder()
+        .appModule(Modules.appModule(this))
+        .domainModule(Modules.domainModule())
+        .dataSourceModule(Modules.dataSourceModule())
+        .webModule(Modules.webModule())
+        .build();
 
-    public static AppComponent appComponent(Context context) {
-        return from(context).getComponent();
-    }
+    appComponent.inject(this);
+  }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        setupComponent();
-        mAppLifecycleCallbacks.onCreate();
-        registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
-    }
-
-    @Override
-    public void onTerminate() {
-        unregisterActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
-        mAppLifecycleCallbacks.onTerminate();
-        super.onTerminate();
-    }
+  public static interface LifecycleCallbacks {
 
     /**
-     * @return the {@link com.ogaclejapan.qiitanium.AppComponent}
+     * Call when the {@link Qiitanium#onCreate()}.
      */
-    public AppComponent getComponent() {
-        return mComponent;
-    }
+    void onCreate();
 
     /**
-     * Initialize the {@link com.ogaclejapan.qiitanium.AppComponent} of Dagger.
+     * Call when the {@link Qiitanium#onTerminate()}.
      */
-    protected void setupComponent() {
-        mComponent = DaggerAppComponent.builder()
-                .appModule(Modules.appModule(this))
-                .domainModule(Modules.domainModule())
-                .dataSourceModule(Modules.dataSourceModule())
-                .webModule(Modules.webModule())
-                .build();
+    void onTerminate();
 
-        mComponent.inject(this);
-    }
+  }
 
 }

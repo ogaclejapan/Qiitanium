@@ -11,47 +11,44 @@ import rx.subscriptions.CompositeSubscription;
 
 abstract class AppViewModel implements Subscription {
 
-    static abstract class AppModelMapper<E extends EntityModel, V extends AppViewModel>
-            implements Func1<E, V> {
-
+  static final Func1<Date, String> TIMEAGO =
+      new Func1<Date, String>() {
         @Override
-        public abstract V call(final E entityModel);
+        public String call(final Date source) {
+          return DateTimeUtils.timeAgo(source);
+        }
+      };
 
-    }
+  private final CompositeSubscription subscriptions;
 
-    static final Func1<Date, String> TIMEAGO =
-            new Func1<Date, String>() {
-                @Override
-                public String call(final Date source) {
-                    return DateTimeUtils.timeAgo(source);
-                }
-            };
+  protected AppViewModel() {
+    subscriptions = new CompositeSubscription();
+  }
 
+  @Override
+  public void unsubscribe() {
+    subscriptions.unsubscribe();
+  }
 
-    private final CompositeSubscription mSubscriptions;
+  @Override
+  public boolean isUnsubscribed() {
+    return subscriptions.isUnsubscribed();
+  }
 
-    protected AppViewModel() {
-        mSubscriptions = new CompositeSubscription();
-    }
+  public void add(Subscription s) {
+    subscriptions.add(s);
+  }
+
+  public void setParent(AppViewModel parent) {
+    parent.add(this);
+  }
+
+  static abstract class AppModelMapper<E extends EntityModel, V extends AppViewModel>
+      implements Func1<E, V> {
 
     @Override
-    public void unsubscribe() {
-        mSubscriptions.unsubscribe();
-    }
+    public abstract V call(final E entityModel);
 
-    @Override
-    public boolean isUnsubscribed() {
-        return mSubscriptions.isUnsubscribed();
-    }
-
-    public void add(Subscription s) {
-        mSubscriptions.add(s);
-    }
-
-
-
-    public void setParent(AppViewModel parent) {
-        parent.add(this);
-    }
+  }
 
 }

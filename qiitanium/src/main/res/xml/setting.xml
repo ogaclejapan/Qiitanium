@@ -2,26 +2,29 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/pref_setting_category_about">
+  <PreferenceCategory android:title="@string/pref_setting_category_about">
 
-        <PreferenceScreen
-                android:key="@string/pref_setting_key_version"
-                android:title="@string/pref_setting_title_version"/>
+    <PreferenceScreen
+        android:key="@string/pref_setting_key_version"
+        android:title="@string/pref_setting_title_version"
+        />
 
-        <PreferenceScreen
-                android:key="@string/pref_setting_key_source_code"
-                android:title="@string/pref_setting_title_source_code"
-                android:summary="@string/app_source_code">
-            <intent
-                    android:action="android.intent.action.VIEW"
-                    android:data="@string/app_source_code"/>
-        </PreferenceScreen>
+    <PreferenceScreen
+        android:key="@string/pref_setting_key_source_code"
+        android:summary="@string/app_source_code"
+        android:title="@string/pref_setting_title_source_code"
+        >
+      <intent
+          android:action="android.intent.action.VIEW"
+          android:data="@string/app_source_code"
+          />
+    </PreferenceScreen>
 
-        <PreferenceScreen
-                android:key="@string/pref_setting_key_oss_licenses"
-                android:title="@string/pref_setting_title_oss_licenses"/>
+    <PreferenceScreen
+        android:key="@string/pref_setting_key_oss_licenses"
+        android:title="@string/pref_setting_title_oss_licenses"
+        />
 
-    </PreferenceCategory>
-
+  </PreferenceCategory>
 
 </PreferenceScreen>

@@ -11,42 +11,40 @@ import java.io.InputStreamReader;
 
 public final class IOUtils {
 
-    public static String readAllFromAssets(Context context, String target) throws IOException {
-        AssetManager as = context.getApplicationContext().getResources().getAssets();
+  private IOUtils() {}
 
-        StringBuilder sb = new StringBuilder();
+  public static String readAllFromAssets(Context context, String target) throws IOException {
+    AssetManager as = context.getApplicationContext().getResources().getAssets();
 
-        InputStream is = null;
-        BufferedReader br = null;
-        try {
-            is = as.open(target);
-            br = new BufferedReader(new InputStreamReader(is));
+    StringBuilder sb = new StringBuilder();
 
-            String s;
-            while ((s = br.readLine()) != null) {
-                sb.append(s).append("\n");
-            }
-        } finally {
-            closeQuietly(br);
-            closeQuietly(is);
-        }
+    InputStream is = null;
+    BufferedReader br = null;
+    try {
+      is = as.open(target);
+      br = new BufferedReader(new InputStreamReader(is));
 
-        return sb.toString();
+      String s;
+      while ((s = br.readLine()) != null) {
+        sb.append(s).append("\n");
+      }
+    } finally {
+      closeQuietly(br);
+      closeQuietly(is);
     }
 
-    public static void closeQuietly(Closeable closeable) {
-        if (closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException ignore) {
-            //Do nothing
-        }
-    }
+    return sb.toString();
+  }
 
-    private IOUtils() {
-        //No instances
+  public static void closeQuietly(Closeable closeable) {
+    if (closeable == null) {
+      return;
     }
+    try {
+      closeable.close();
+    } catch (IOException ignore) {
+      //Do nothing
+    }
+  }
 
 }

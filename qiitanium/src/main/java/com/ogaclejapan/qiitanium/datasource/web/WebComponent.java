@@ -4,6 +4,6 @@ import com.squareup.okhttp.OkHttpClient;
 
 public interface WebComponent {
 
-    OkHttpClient getOkHttpClient();
+  OkHttpClient getOkHttpClient();
 
 }
