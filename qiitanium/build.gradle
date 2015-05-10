@@ -114,5 +114,10 @@ dependencies {
     transitive = true;
   }
 
+  //Debug tools
+  debugCompile 'com.facebook.stetho:stetho:1.1.1'
+  debugCompile 'com.facebook.stetho:stetho-okhttp:1.1.1'
+
+  
 }
 

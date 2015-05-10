@@ -21,9 +21,10 @@ public class AppLifecycleCallbacks implements Qiitanium.LifecycleCallbacks {
 
   @Override
   public void onCreate() {
-    initializeFabric();
-    initializeLogger();
-    initializeTypeFace();
+    setupFabric();
+    setupLogger();
+    setupTypeFace();
+
   }
 
   @Override
@@ -31,15 +32,15 @@ public class AppLifecycleCallbacks implements Qiitanium.LifecycleCallbacks {
     // Do nothing.
   }
 
-  protected void initializeFabric() {
+  protected void setupFabric() {
     Fabric.with(app, new Crashlytics());
   }
 
-  protected void initializeLogger() {
+  protected void setupLogger() {
     Timber.plant(new CrashlyticsTree());
   }
 
-  protected void initializeTypeFace() {
+  protected void setupTypeFace() {
     TypefaceHelper.init(new TypefaceCollection.Builder()
         .set(Typeface.NORMAL, createTypefaceFromAsset(R.string.font_ubuntu_regular))
         .set(Typeface.BOLD, createTypefaceFromAsset(R.string.font_ubuntu_bold))
