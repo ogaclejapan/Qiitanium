@@ -78,7 +78,7 @@ dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 
   // Logger
-  compile 'com.jakewharton.timber:timber:2.7.1'
+  compile 'com.jakewharton.timber:timber:3.1.0'
 
   // HTTP client
   compile 'com.squareup.okhttp:okhttp:2.3.0'
@@ -120,6 +120,7 @@ dependencies {
   // Debug bridge
   debugCompile 'com.facebook.stetho:stetho:1.1.1'
   debugCompile 'com.facebook.stetho:stetho-okhttp:1.1.1'
+  debugCompile 'com.facebook.stetho:stetho-timber:1.1.1'
 
   
 }

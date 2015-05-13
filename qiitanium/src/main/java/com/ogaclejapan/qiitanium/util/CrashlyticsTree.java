@@ -1,20 +1,22 @@
 package com.ogaclejapan.qiitanium.util;
 
+import android.util.Log;
+
 import com.crashlytics.android.Crashlytics;
 
 import timber.log.Timber;
 
-public class CrashlyticsTree extends Timber.HollowTree {
+public class CrashlyticsTree extends Timber.Tree {
 
   @Override
-  public void e(String message, Object... args) {
-    Crashlytics.log(String.format(message, args));
-  }
-
-  @Override
-  public void e(Throwable t, String message, Object... args) {
-    Crashlytics.logException(t);
-    Crashlytics.log(String.format(message, args));
+  protected void log(int priority, String tag, String message, Throwable t) {
+    if (priority != Log.ERROR) {
+      return;
+    }
+    Crashlytics.log(message);
+    if (t != null) {
+      Crashlytics.logException(t);
+    }
   }
 
 }
