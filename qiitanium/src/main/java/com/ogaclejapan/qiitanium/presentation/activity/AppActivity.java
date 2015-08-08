@@ -78,9 +78,9 @@ abstract class AppActivity extends Activity {
     return ResUtils.getInteger(this, resId);
   }
 
-  protected int getColor(@ColorRes int resId) {
-    return ResUtils.getColor(this, resId);
-  }
+//  protected int getColor(@ColorRes int resId) {
+//    return ResUtils.getColor(this, resId);
+//  }
 
   protected float getDimension(@DimenRes int resId) {
     return ResUtils.getDimension(this, resId);
