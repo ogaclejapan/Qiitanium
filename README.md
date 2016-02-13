@@ -47,7 +47,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[google_play_store_badge]: https://developer.android.com/images/brand/en_generic_rgb_wo_60.png
+[google_play_store_badge]: http://www.android.com/images/brand/get_it_on_play_logo_large.png
 [google_play_store_link]: https://play.google.com/store/apps/details?id=com.ogaclejapan.qiitanium
 [app_icon]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/icon.png
 [app_gif]: https://raw.githubusercontent.com/ogaclejapan/Qiitanium/master/art/qiitanium.gif
