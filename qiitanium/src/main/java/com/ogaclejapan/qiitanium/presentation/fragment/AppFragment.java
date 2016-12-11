@@ -45,7 +45,7 @@ abstract class AppFragment extends Fragment {
     Qiitanium.from(getActivity()).getRefWatcher().watch(this);
   }
 
-  protected Context getContext() {
+  public Context getContext() {
     return context;
   }
 

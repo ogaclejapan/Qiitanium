@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
 
 android {
@@ -68,13 +67,13 @@ dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
 
   // Android support library
-  compile 'com.android.support:appcompat-v7:22.1.+'
-  compile 'com.android.support:support-v4:22.1.+'
-  compile 'com.android.support:support-v13:22.0.+'
+  compile 'com.android.support:appcompat-v7:25.0.1'
+  compile 'com.android.support:support-v4:25.0.1'
+  compile 'com.android.support:support-v13:25.0.1'
 
   // DI
   compile 'com.google.dagger:dagger:2.0'
-  apt 'com.google.dagger:dagger-compiler:2.0'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
   provided 'org.glassfish:javax.annotation:10.0-b28'
 
   // Logger

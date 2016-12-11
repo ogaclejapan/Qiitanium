@@ -74,7 +74,7 @@ abstract class AppDialogFragment extends DialogFragment {
     show(ft, tag);
   }
 
-  protected Context getContext() {
+  public Context getContext() {
     return context;
   }
 

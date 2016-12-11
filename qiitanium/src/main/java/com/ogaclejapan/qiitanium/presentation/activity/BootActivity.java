@@ -21,6 +21,7 @@ public class BootActivity extends AppActivity {
     // TODO ログイン初期化処理など追加予定
 
     TopActivity.startActivity(this);
+    finish();
   }
 
 }
